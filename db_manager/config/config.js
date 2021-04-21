@@ -6,6 +6,10 @@ module.exports = {
     database: process.env.DATABASE,
     host: "127.0.0.1",
     dialect: "mysql",
+    define: {
+      underscored: true,
+    },
+    logging: false,
   },
   test: {
     username: "root",
