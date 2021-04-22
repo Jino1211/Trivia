@@ -62,40 +62,63 @@ const type3 = (countries, { question, column }) => {
   return currentQuestion;
 };
 
+//function for handling the saved questions.
+const typeSaved = (saved) => {
+  const currentQuestion = { question: "", options: [], answer: "" };
+
+  currentQuestion.question = saved.question;
+  currentQuestion.options =
+    saved.option_3 && save.option_4
+      ? [saved.option_1, saved.option_2, saved.option_3, saved.option_4]
+      : saved.option_1 === "0"
+      ? [false, true]
+      : [true, false];
+  currentQuestion.answer = saved.answer;
+  console.log(currentQuestion);
+  return currentQuestion;
+};
+
 // main query for navigating between questions types.
-const getQuestion = async () => {
-  const result = await questions.findOne({
-    order: Sequelize.literal("rand()"),
-  });
-  const table = models[`${result["table"]}`];
-  let countries;
-  switch (result.type) {
-    case 1:
-      countries = await table.findAll({
-        order: Sequelize.literal("rand()"),
-        limit: 4,
-      });
-      question = type1(countries, result);
-      break;
+const getQuestion = async (third) => {
+  if (third) {
+    const saved = await saved_questions.findOne({
+      order: Sequelize.literal("rand()"),
+    });
+    question = typeSaved(saved);
+  } else {
+    const result = await questions.findOne({
+      order: Sequelize.literal("rand()"),
+    });
 
-    case 2:
-      countries = await table.findAll({
-        order: Sequelize.literal("rand()"),
-        group: result.column,
-        limit: 4,
-      });
-      question = type2(countries, result);
-      break;
+    const table = models[`${result["table"]}`];
+    let countries;
+    switch (result.type) {
+      case 1:
+        countries = await table.findAll({
+          order: Sequelize.literal("rand()"),
+          limit: 4,
+        });
+        question = type1(countries, result);
+        break;
 
-    case 3:
-      countries = await table.findAll({
-        order: Sequelize.literal("rand()"),
-        limit: 2,
-      });
-      question = type3(countries, result);
-      break;
+      case 2:
+        countries = await table.findAll({
+          order: Sequelize.literal("rand()"),
+          group: result.column,
+          limit: 4,
+        });
+        question = type2(countries, result);
+        break;
+
+      case 3:
+        countries = await table.findAll({
+          order: Sequelize.literal("rand()"),
+          limit: 2,
+        });
+        question = type3(countries, result);
+        break;
+    }
   }
-
   return question;
 };
 
@@ -142,4 +165,3 @@ const handleNewRate = async (rate) => {
     : saveQuestion(rate, question);
 };
 module.exports = { getQuestion, handleNewRate };
-console.log(getQuestion().then((res) => res));

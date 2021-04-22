@@ -2,13 +2,17 @@ const express = require("express");
 const app = express();
 const { getQuestion, handleNewRate } = require("./utils");
 let currentQuestion;
+let numOfQuestion = 0;
 
 app.use(express.json());
 
 //Entry point for sending  new questions for the users
 app.get("/question", (req, res) => {
-  getQuestion()
+  numOfQuestion += 1;
+  let third = numOfQuestion % 3 === 0 ? true : false;
+  getQuestion(third)
     .then((result) => {
+      console.log(result);
       currentQuestion = result;
       res.status(200).json({
         question: result.question,
