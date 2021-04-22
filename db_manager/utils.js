@@ -87,8 +87,74 @@ const isInHistory = () => {
   return bool;
 };
 
+//
+const handleEasyTypes = async (result, table) => {
+  let countries;
+  switch (result.type) {
+    case 1:
+      countries = await table.findAll({
+        order: Sequelize.literal("rand()"),
+        limit: 4,
+      });
+      question = type1(countries, result);
+      break;
+
+    case 2:
+      countries = await table.findAll({
+        order: Sequelize.literal("rand()"),
+        group: result.column,
+        limit: 4,
+      });
+      question = type2(countries, result);
+      break;
+
+    case 3:
+      countries = await table.findAll({
+        order: Sequelize.literal("rand()"),
+        limit: 2,
+      });
+      question = type3(countries, result);
+      break;
+  }
+};
+
+//
+const handleDifficultTypes = async (result, table) => {
+  let countries;
+  const length = (await table.count({})) - 4;
+  const randomRow = Math.floor(Math.random() * length);
+
+  switch (result.type) {
+    case 1:
+      countries = await table.findAll({
+        order: [[result.column]],
+        limit: [randomRow, 4],
+      });
+      question = type1(countries, result);
+      console.log(result.column);
+      break;
+
+    case 2:
+      countries = await table.findAll({
+        order: [[result.column]],
+        group: result.column,
+        limit: [randomRow, 4],
+      });
+      question = type2(countries, result);
+      break;
+
+    case 3:
+      countries = await table.findAll({
+        order: [[result.column]],
+        limit: [randomRow, 2],
+      });
+      question = type3(countries, result);
+      break;
+  }
+};
+
 // main query for navigating between questions types.
-const getQuestion = async (third) => {
+const getQuestion = async (third, difficulty) => {
   if (third) {
     const saved = await saved_questions.findOne({
       order: Sequelize.literal("rand()"),
@@ -98,35 +164,11 @@ const getQuestion = async (third) => {
     const result = await questions.findOne({
       order: Sequelize.literal("rand()"),
     });
-
     const table = models[`${result["table"]}`];
-    let countries;
-    switch (result.type) {
-      case 1:
-        countries = await table.findAll({
-          order: Sequelize.literal("rand()"),
-          limit: 4,
-        });
-        question = type1(countries, result);
-        break;
 
-      case 2:
-        countries = await table.findAll({
-          order: Sequelize.literal("rand()"),
-          group: result.column,
-          limit: 4,
-        });
-        question = type2(countries, result);
-        break;
-
-      case 3:
-        countries = await table.findAll({
-          order: Sequelize.literal("rand()"),
-          limit: 2,
-        });
-        question = type3(countries, result);
-        break;
-    }
+    difficulty === "hard"
+      ? await handleDifficultTypes(result, table)
+      : await handleEasyTypes(result, table);
   }
   if (isInHistory()) getQuestion();
   history.push(question);
