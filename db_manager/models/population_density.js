@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
   population_density.init(
     {
       Rank: DataTypes.INTEGER,
-      Country_or_dependent_territory: {
+      Country: {
         type: DataTypes.STRING,
         primaryKey: true,
       },

@@ -7,7 +7,7 @@ module.exports = {
       [
         {
           Rank: 1,
-          Country_or_dependent_territory: "Macau",
+          Country: "Macau",
           Area_km2: 32.9,
           Population: 676100,
           Density_pop_km2: 20550,
@@ -16,7 +16,7 @@ module.exports = {
         },
         {
           Rank: 2,
-          Country_or_dependent_territory: "Monaco",
+          Country: "Monaco",
           Area_km2: 2.02,
           Population: 38300,
           Density_pop_km2: 18960,
@@ -25,7 +25,7 @@ module.exports = {
         },
         {
           Rank: 3,
-          Country_or_dependent_territory: "Singapore",
+          Country: "Singapore",
           Area_km2: 722.5,
           Population: 5703600,
           Density_pop_km2: 7894,
@@ -34,7 +34,7 @@ module.exports = {
         },
         {
           Rank: 4,
-          Country_or_dependent_territory: "Hong Kong",
+          Country: "Hong Kong",
           Area_km2: 1106,
           Population: 7500700,
           Density_pop_km2: 6782,
@@ -43,7 +43,7 @@ module.exports = {
         },
         {
           Rank: 5,
-          Country_or_dependent_territory: "Gibraltar (UK)",
+          Country: "Gibraltar (UK)",
           Area_km2: 6.8,
           Population: 33701,
           Density_pop_km2: 4956,
@@ -52,7 +52,7 @@ module.exports = {
         },
         {
           Rank: 6,
-          Country_or_dependent_territory: "Vatican City",
+          Country: "Vatican City",
           Area_km2: 0.44,
           Population: 1000,
           Density_pop_km2: 2273,
@@ -61,7 +61,7 @@ module.exports = {
         },
         {
           Rank: 7,
-          Country_or_dependent_territory: "Bahrain",
+          Country: "Bahrain",
           Area_km2: 778,
           Population: 1543300,
           Density_pop_km2: 1983,
@@ -70,7 +70,7 @@ module.exports = {
         },
         {
           Rank: 8,
-          Country_or_dependent_territory: "Malta",
+          Country: "Malta",
           Area_km2: 315,
           Population: 493559,
           Density_pop_km2: 1510,
@@ -79,7 +79,7 @@ module.exports = {
         },
         {
           Rank: 9,
-          Country_or_dependent_territory: "Maldives",
+          Country: "Maldives",
           Area_km2: 298,
           Population: 374775,
           Density_pop_km2: 1258,
@@ -88,7 +88,7 @@ module.exports = {
         },
         {
           Rank: 10,
-          Country_or_dependent_territory: "Bermuda (UK)",
+          Country: "Bermuda (UK)",
           Area_km2: 52,
           Population: 64027,
           Density_pop_km2: 1227,
@@ -97,8 +97,7 @@ module.exports = {
         },
         {
           Rank: 11,
-          Country_or_dependent_territory:
-            "Sint Maarten (Kingdom of the Netherlands)",
+          Country: "Sint Maarten (Kingdom of the Netherlands)",
 
           Area_km2: 34,
           Population: 41486,
@@ -108,7 +107,7 @@ module.exports = {
         },
         {
           Rank: 12,
-          Country_or_dependent_territory: "Bangladesh",
+          Country: "Bangladesh",
           Area_km2: 143998,
           Population: 168287530,
           Density_pop_km2: 1169,
@@ -117,7 +116,7 @@ module.exports = {
         },
         {
           Rank: 13,
-          Country_or_dependent_territory: "Jersey (Crown dependency)",
+          Country: "Jersey (Crown dependency)",
           Area_km2: 116,
           Population: 104200,
           Density_pop_km2: 898,
@@ -126,7 +125,7 @@ module.exports = {
         },
         {
           Rank: 14,
-          Country_or_dependent_territory: "Palestine",
+          Country: "Palestine",
           Area_km2: 6020,
           Population: 4976684,
           Density_pop_km2: 827,
@@ -135,7 +134,7 @@ module.exports = {
         },
         {
           Rank: 15,
-          Country_or_dependent_territory: "Guernsey (Crown dependency)",
+          Country: "Guernsey (Crown dependency)",
           Area_km2: 78,
           Population: 62723,
           Density_pop_km2: 804,
@@ -144,7 +143,7 @@ module.exports = {
         },
         {
           Rank: 16,
-          Country_or_dependent_territory: "Mayotte (France)",
+          Country: "Mayotte (France)",
           Area_km2: 374,
           Population: 256518,
           Density_pop_km2: 686,
@@ -153,7 +152,7 @@ module.exports = {
         },
         {
           Rank: 17,
-          Country_or_dependent_territory: "Lebanon",
+          Country: "Lebanon",
           Area_km2: 10452,
           Population: 6855713,
           Density_pop_km2: 672,
@@ -162,7 +161,7 @@ module.exports = {
         },
         {
           Rank: 18,
-          Country_or_dependent_territory: "Barbados",
+          Country: "Barbados",
           Area_km2: 430,
           Population: 287025,
           Density_pop_km2: 668,
@@ -171,7 +170,7 @@ module.exports = {
         },
         {
           Rank: 19,
-          Country_or_dependent_territory: "Saint Martin (France)",
+          Country: "Saint Martin (France)",
           Area_km2: 53.2,
           Population: 35107,
           Density_pop_km2: 660,
@@ -180,7 +179,7 @@ module.exports = {
         },
         {
           Rank: 20,
-          Country_or_dependent_territory: "Taiwan",
+          Country: "Taiwan",
           Area_km2: 36197,
           Population: 23604265,
           Density_pop_km2: 652,
@@ -189,7 +188,7 @@ module.exports = {
         },
         {
           Rank: 21,
-          Country_or_dependent_territory: "Mauritius",
+          Country: "Mauritius",
           Area_km2: 2040,
           Population: 1265577,
           Density_pop_km2: 620,
@@ -198,7 +197,7 @@ module.exports = {
         },
         {
           Rank: 22,
-          Country_or_dependent_territory: "Aruba (Kingdom of the Netherlands)",
+          Country: "Aruba (Kingdom of the Netherlands)",
           Area_km2: 180,
           Population: 112309,
           Density_pop_km2: 624,
@@ -207,7 +206,7 @@ module.exports = {
         },
         {
           Rank: 23,
-          Country_or_dependent_territory: "San Marino",
+          Country: "San Marino",
           Area_km2: 61,
           Population: 34641,
           Density_pop_km2: 568,
@@ -216,7 +215,7 @@ module.exports = {
         },
         {
           Rank: 24,
-          Country_or_dependent_territory: "Nauru",
+          Country: "Nauru",
           Area_km2: 21,
           Population: 11200,
           Density_pop_km2: 533,
@@ -225,7 +224,7 @@ module.exports = {
         },
         {
           Rank: 25,
-          Country_or_dependent_territory: "South Korea",
+          Country: "South Korea",
           Area_km2: 100210,
           Population: 51780579,
           Density_pop_km2: 517,
@@ -234,7 +233,7 @@ module.exports = {
         },
         {
           Rank: 26,
-          Country_or_dependent_territory: "Rwanda",
+          Country: "Rwanda",
           Area_km2: 26338,
           Population: 12374397,
           Density_pop_km2: 470,
@@ -243,7 +242,7 @@ module.exports = {
         },
         {
           Rank: 27,
-          Country_or_dependent_territory: "Comoros",
+          Country: "Comoros",
           Area_km2: 1861,
           Population: 873724,
           Density_pop_km2: 469,
@@ -252,7 +251,7 @@ module.exports = {
         },
         {
           Rank: 28,
-          Country_or_dependent_territory: "Saint Barthelemy (France)",
+          Country: "Saint Barthelemy (France)",
           Area_km2: 21,
           Population: 9427,
           Density_pop_km2: 449,
@@ -261,7 +260,7 @@ module.exports = {
         },
         {
           Rank: 29,
-          Country_or_dependent_territory: "Netherlands",
+          Country: "Netherlands",
           Area_km2: 41526,
           Population: 17445781,
           Density_pop_km2: 420,
@@ -270,7 +269,7 @@ module.exports = {
         },
         {
           Rank: 30,
-          Country_or_dependent_territory: "Haiti",
+          Country: "Haiti",
           Area_km2: 27065,
           Population: 11263077,
           Density_pop_km2: 416,
@@ -279,7 +278,7 @@ module.exports = {
         },
         {
           Rank: 31,
-          Country_or_dependent_territory: "Israel",
+          Country: "Israel",
           Area_km2: 22072,
           Population: 9173250,
           Density_pop_km2: 416,
@@ -288,7 +287,7 @@ module.exports = {
         },
         {
           Rank: 32,
-          Country_or_dependent_territory: "India",
+          Country: "India",
           Area_km2: 3287240,
           Population: 1359933123,
           Density_pop_km2: 414,
@@ -297,7 +296,7 @@ module.exports = {
         },
         {
           Rank: 33,
-          Country_or_dependent_territory: "Burundi",
+          Country: "Burundi",
           Area_km2: 27816,
           Population: 11215578,
           Density_pop_km2: 403,
@@ -306,7 +305,7 @@ module.exports = {
         },
         {
           Rank: 34,
-          Country_or_dependent_territory: "Tuvalu",
+          Country: "Tuvalu",
           Area_km2: 26,
           Population: 10300,
           Density_pop_km2: 396,
@@ -315,7 +314,7 @@ module.exports = {
         },
         {
           Rank: 35,
-          Country_or_dependent_territory: "Belgium",
+          Country: "Belgium",
           Area_km2: 30689,
           Population: 11524454,
           Density_pop_km2: 376,
@@ -324,7 +323,7 @@ module.exports = {
         },
         {
           Rank: 36,
-          Country_or_dependent_territory: "Philippines",
+          Country: "Philippines",
           Area_km2: 300000,
           Population: 108420484,
           Density_pop_km2: 361,
@@ -333,8 +332,7 @@ module.exports = {
         },
         {
           Rank: 37,
-          Country_or_dependent_territory:
-            "Curaçao (Kingdom of the Netherlands)",
+          Country: "Curaçao (Kingdom of the Netherlands)",
           Area_km2: 444,
           Population: 158665,
           Density_pop_km2: 357,
@@ -343,7 +341,7 @@ module.exports = {
         },
         {
           Rank: 38,
-          Country_or_dependent_territory: "Puerto Rico (US)",
+          Country: "Puerto Rico (US)",
           Area_km2: 9104,
           Population: 3195153,
           Density_pop_km2: 351,
@@ -352,7 +350,7 @@ module.exports = {
         },
         {
           Rank: 39,
-          Country_or_dependent_territory: "Reunion (France)",
+          Country: "Reunion (France)",
           Area_km2: 2503.7,
           Population: 850996,
           Density_pop_km2: 340,
@@ -361,7 +359,7 @@ module.exports = {
         },
         {
           Rank: 40,
-          Country_or_dependent_territory: "Japan",
+          Country: "Japan",
           Area_km2: 377975,
           Population: 126010000,
           Density_pop_km2: 333,
@@ -370,7 +368,7 @@ module.exports = {
         },
         {
           Rank: 41,
-          Country_or_dependent_territory: "Sri Lanka",
+          Country: "Sri Lanka",
           Area_km2: 65610,
           Population: 21803000,
           Density_pop_km2: 332,
@@ -379,7 +377,7 @@ module.exports = {
         },
         {
           Rank: 42,
-          Country_or_dependent_territory: "Martinique (France)",
+          Country: "Martinique (France)",
           Area_km2: 1128,
           Population: 371246,
           Density_pop_km2: 329,
@@ -388,7 +386,7 @@ module.exports = {
         },
         {
           Rank: 43,
-          Country_or_dependent_territory: "Guam (US)",
+          Country: "Guam (US)",
           Area_km2: 541,
           Population: 175200,
           Density_pop_km2: 324,
@@ -397,7 +395,7 @@ module.exports = {
         },
         {
           Rank: 44,
-          Country_or_dependent_territory: "El Salvador",
+          Country: "El Salvador",
           Area_km2: 21040,
           Population: 6704864,
           Density_pop_km2: 319,
@@ -406,7 +404,7 @@ module.exports = {
         },
         {
           Rank: 45,
-          Country_or_dependent_territory: "Grenada",
+          Country: "Grenada",
           Area_km2: 344,
           Population: 108825,
           Density_pop_km2: 316,
@@ -415,7 +413,7 @@ module.exports = {
         },
         {
           Rank: 46,
-          Country_or_dependent_territory: "Marshall Islands",
+          Country: "Marshall Islands",
           Area_km2: 181,
           Population: 55900,
           Density_pop_km2: 309,
@@ -424,7 +422,7 @@ module.exports = {
         },
         {
           Rank: 47,
-          Country_or_dependent_territory: "United States Virgin Islands (US)",
+          Country: "United States Virgin Islands (US)",
           Area_km2: 352,
           Population: 104909,
           Density_pop_km2: 298,
@@ -433,7 +431,7 @@ module.exports = {
         },
         {
           Rank: 48,
-          Country_or_dependent_territory: "Saint Lucia",
+          Country: "Saint Lucia",
           Area_km2: 617,
           Population: 180454,
           Density_pop_km2: 292,
@@ -442,7 +440,7 @@ module.exports = {
         },
         {
           Rank: 49,
-          Country_or_dependent_territory: "American Samoa (US)",
+          Country: "American Samoa (US)",
           Area_km2: 197,
           Population: 57100,
           Density_pop_km2: 290,
@@ -451,7 +449,7 @@ module.exports = {
         },
         {
           Rank: 50,
-          Country_or_dependent_territory: "Vietnam",
+          Country: "Vietnam",
           Area_km2: 331212,
           Population: 96208984,
           Density_pop_km2: 290,
@@ -460,7 +458,7 @@ module.exports = {
         },
         {
           Rank: 51,
-          Country_or_dependent_territory: "Saint Vincent and the Grenadines",
+          Country: "Saint Vincent and the Grenadines",
           Area_km2: 389,
           Population: 110520,
           Density_pop_km2: 284,
@@ -469,7 +467,7 @@ module.exports = {
         },
         {
           Rank: 52,
-          Country_or_dependent_territory: "United Kingdom",
+          Country: "United Kingdom",
           Area_km2: 242910,
           Population: 66435600,
           Density_pop_km2: 274,
@@ -478,7 +476,7 @@ module.exports = {
         },
         {
           Rank: 53,
-          Country_or_dependent_territory: "Pakistan",
+          Country: "Pakistan",
           Area_km2: 803940,
           Population: 218983520,
           Density_pop_km2: 272,
@@ -487,7 +485,7 @@ module.exports = {
         },
         {
           Rank: 54,
-          Country_or_dependent_territory: "Trinidad and Tobago",
+          Country: "Trinidad and Tobago",
           Area_km2: 5155,
           Population: 1363985,
           Density_pop_km2: 265,
@@ -496,7 +494,7 @@ module.exports = {
         },
         {
           Rank: 55,
-          Country_or_dependent_territory: "Cayman Islands (UK)",
+          Country: "Cayman Islands (UK)",
           Area_km2: 259,
           Population: 65813,
           Density_pop_km2: 254,
@@ -505,7 +503,7 @@ module.exports = {
         },
         {
           Rank: 56,
-          Country_or_dependent_territory: "Kuwait",
+          Country: "Kuwait",
           Area_km2: 17818,
           Population: 4420110,
           Density_pop_km2: 248,
@@ -514,7 +512,7 @@ module.exports = {
         },
         {
           Rank: 57,
-          Country_or_dependent_territory: "Jamaica",
+          Country: "Jamaica",
           Area_km2: 10991,
           Population: 2726667,
           Density_pop_km2: 248,
@@ -523,7 +521,7 @@ module.exports = {
         },
         {
           Rank: 58,
-          Country_or_dependent_territory: "Guadeloupe (France)",
+          Country: "Guadeloupe (France)",
           Area_km2: 1628.4,
           Population: 395725,
           Density_pop_km2: 243,
@@ -532,7 +530,7 @@ module.exports = {
         },
         {
           Rank: 59,
-          Country_or_dependent_territory: "Liechtenstein",
+          Country: "Liechtenstein",
           Area_km2: 160,
           Population: 38380,
           Density_pop_km2: 240,
@@ -541,7 +539,7 @@ module.exports = {
         },
         {
           Rank: 60,
-          Country_or_dependent_territory: "Luxembourg",
+          Country: "Luxembourg",
           Area_km2: 2586,
           Population: 613894,
           Density_pop_km2: 237,
@@ -550,7 +548,7 @@ module.exports = {
         },
         {
           Rank: 61,
-          Country_or_dependent_territory: "Qatar",
+          Country: "Qatar",
           Area_km2: 11571,
           Population: 2740479,
           Density_pop_km2: 237,
@@ -559,7 +557,7 @@ module.exports = {
         },
         {
           Rank: 62,
-          Country_or_dependent_territory: "Antigua and Barbuda",
+          Country: "Antigua and Barbuda",
           Area_km2: 442,
           Population: 104084,
           Density_pop_km2: 235,
@@ -568,7 +566,7 @@ module.exports = {
         },
         {
           Rank: 63,
-          Country_or_dependent_territory: "Germany",
+          Country: "Germany",
           Area_km2: 357168,
           Population: 83149300,
           Density_pop_km2: 233,
@@ -577,7 +575,7 @@ module.exports = {
         },
         {
           Rank: 64,
-          Country_or_dependent_territory: "Nigeria",
+          Country: "Nigeria",
           Area_km2: 923768,
           Population: 200962000,
           Density_pop_km2: 218,
@@ -586,7 +584,7 @@ module.exports = {
         },
         {
           Rank: 65,
-          Country_or_dependent_territory: "Dominican Republic",
+          Country: "Dominican Republic",
           Area_km2: 47875,
           Population: 10358320,
           Density_pop_km2: 216,
@@ -595,7 +593,7 @@ module.exports = {
         },
         {
           Rank: 66,
-          Country_or_dependent_territory: "Seychelles",
+          Country: "Seychelles",
           Area_km2: 455,
           Population: 96762,
           Density_pop_km2: 213,
@@ -604,7 +602,7 @@ module.exports = {
         },
         {
           Rank: 67,
-          Country_or_dependent_territory: "British Virgin Islands (UK)",
+          Country: "British Virgin Islands (UK)",
           Area_km2: 151,
           Population: 32206,
           Density_pop_km2: 213,
@@ -613,7 +611,7 @@ module.exports = {
         },
         {
           Rank: 68,
-          Country_or_dependent_territory: "North Korea",
+          Country: "North Korea",
           Area_km2: 120540,
           Population: 25450000,
           Density_pop_km2: 211,
@@ -622,7 +620,7 @@ module.exports = {
         },
         {
           Rank: 69,
-          Country_or_dependent_territory: "Saint Kitts and Nevis",
+          Country: "Saint Kitts and Nevis",
           Area_km2: 270,
           Population: 56345,
           Density_pop_km2: 209,
@@ -631,7 +629,7 @@ module.exports = {
         },
         {
           Rank: 70,
-          Country_or_dependent_territory: "Gambia",
+          Country: "Gambia",
           Area_km2: 10690,
           Population: 2228075,
           Density_pop_km2: 208,
@@ -640,7 +638,7 @@ module.exports = {
         },
         {
           Rank: 71,
-          Country_or_dependent_territory: "Switzerland",
+          Country: "Switzerland",
           Area_km2: 41285,
           Population: 8586550,
           Density_pop_km2: 208,
@@ -649,7 +647,7 @@ module.exports = {
         },
         {
           Rank: 72,
-          Country_or_dependent_territory: "São Tomé and Príncipe",
+          Country: "São Tomé and Príncipe",
           Area_km2: 1001,
           Population: 201784,
           Density_pop_km2: 202,
@@ -658,7 +656,7 @@ module.exports = {
         },
         {
           Rank: 73,
-          Country_or_dependent_territory: "Nepal",
+          Country: "Nepal",
           Area_km2: 147181,
           Population: 29609623,
           Density_pop_km2: 201,
@@ -667,7 +665,7 @@ module.exports = {
         },
         {
           Rank: 74,
-          Country_or_dependent_territory: "Italy",
+          Country: "Italy",
           Area_km2: 301308,
           Population: 60252824,
           Density_pop_km2: 200,
@@ -676,7 +674,7 @@ module.exports = {
         },
         {
           Rank: 75,
-          Country_or_dependent_territory: "Uganda",
+          Country: "Uganda",
           Area_km2: 241551,
           Population: 40006700,
           Density_pop_km2: 166,
@@ -685,7 +683,7 @@ module.exports = {
         },
         {
           Rank: 76,
-          Country_or_dependent_territory: "Kosovo",
+          Country: "Kosovo",
           Area_km2: 10910,
           Population: 1795666,
           Density_pop_km2: 165,
@@ -694,7 +692,7 @@ module.exports = {
         },
         {
           Rank: 77,
-          Country_or_dependent_territory: "Andorra",
+          Country: "Andorra",
           Area_km2: 464,
           Population: 76177,
           Density_pop_km2: 164,
@@ -703,7 +701,7 @@ module.exports = {
         },
         {
           Rank: 78,
-          Country_or_dependent_territory: "Guatemala",
+          Country: "Guatemala",
           Area_km2: 108889,
           Population: 17679735,
           Density_pop_km2: 162,
@@ -712,7 +710,7 @@ module.exports = {
         },
         {
           Rank: 79,
-          Country_or_dependent_territory: "Kiribati",
+          Country: "Kiribati",
           Area_km2: 811,
           Population: 125000,
           Density_pop_km2: 154,
@@ -721,7 +719,7 @@ module.exports = {
         },
         {
           Rank: 80,
-          Country_or_dependent_territory: "Sint Eustatius (Netherlands)",
+          Country: "Sint Eustatius (Netherlands)",
           Area_km2: 21,
           Population: 3193,
           Density_pop_km2: 152,
@@ -730,7 +728,7 @@ module.exports = {
         },
         {
           Rank: 81,
-          Country_or_dependent_territory: "Federated States of Micronesia",
+          Country: "Federated States of Micronesia",
           Area_km2: 701,
           Population: 105600,
           Density_pop_km2: 151,
@@ -739,7 +737,7 @@ module.exports = {
         },
         {
           Rank: 82,
-          Country_or_dependent_territory: "Saba (Netherlands)",
+          Country: "Saba (Netherlands)",
           Area_km2: 13,
           Population: 1947,
           Density_pop_km2: 150,
@@ -748,7 +746,7 @@ module.exports = {
         },
         {
           Rank: 83,
-          Country_or_dependent_territory: "Cyprus",
+          Country: "Cyprus",
           Area_km2: 5896,
           Population: 875900,
           Density_pop_km2: 149,
@@ -757,7 +755,7 @@ module.exports = {
         },
         {
           Rank: 84,
-          Country_or_dependent_territory: "Malawi",
+          Country: "Malawi",
           Area_km2: 118484,
           Population: 17563749,
           Density_pop_km2: 148,
@@ -766,7 +764,7 @@ module.exports = {
         },
         {
           Rank: 85,
-          Country_or_dependent_territory: "Isle of Man (Crown dependency)",
+          Country: "Isle of Man (Crown dependency)",
           Area_km2: 572,
           Population: 83314,
           Density_pop_km2: 146,
@@ -775,7 +773,7 @@ module.exports = {
         },
         {
           Rank: 86,
-          Country_or_dependent_territory: "China",
+          Country: "China",
           Area_km2: 9640821,
           Population: 1401812360,
           Density_pop_km2: 145,
@@ -784,7 +782,7 @@ module.exports = {
         },
         {
           Rank: 87,
-          Country_or_dependent_territory: "Indonesia",
+          Country: "Indonesia",
           Area_km2: 1904569,
           Population: 268074600,
           Density_pop_km2: 141,
@@ -793,7 +791,7 @@ module.exports = {
         },
         {
           Rank: 88,
-          Country_or_dependent_territory: "Tokelau (NZ)",
+          Country: "Tokelau (NZ)",
           Area_km2: 10,
           Population: 1400,
           Density_pop_km2: 140,
@@ -802,7 +800,7 @@ module.exports = {
         },
         {
           Rank: 89,
-          Country_or_dependent_territory: "Anguilla (UK)",
+          Country: "Anguilla (UK)",
           Area_km2: 96,
           Population: 13452,
           Density_pop_km2: 140,
@@ -811,7 +809,7 @@ module.exports = {
         },
         {
           Rank: 90,
-          Country_or_dependent_territory: "Tonga",
+          Country: "Tonga",
           Area_km2: 720,
           Population: 100000,
           Density_pop_km2: 139,
@@ -820,7 +818,7 @@ module.exports = {
         },
         {
           Rank: 91,
-          Country_or_dependent_territory: "Cape Verde",
+          Country: "Cape Verde",
           Area_km2: 4033,
           Population: 550483,
           Density_pop_km2: 136,
@@ -829,7 +827,7 @@ module.exports = {
         },
         {
           Rank: 92,
-          Country_or_dependent_territory: "Czech Republic",
+          Country: "Czech Republic",
           Area_km2: 78867,
           Population: 10681161,
           Density_pop_km2: 135,
@@ -838,7 +836,7 @@ module.exports = {
         },
         {
           Rank: 93,
-          Country_or_dependent_territory: "Denmark",
+          Country: "Denmark",
           Area_km2: 43098,
           Population: 5814461,
           Density_pop_km2: 135,
@@ -847,7 +845,7 @@ module.exports = {
         },
         {
           Rank: 94,
-          Country_or_dependent_territory: "Togo",
+          Country: "Togo",
           Area_km2: 56600,
           Population: 7538000,
           Density_pop_km2: 133,
@@ -856,7 +854,7 @@ module.exports = {
         },
         {
           Rank: 95,
-          Country_or_dependent_territory: "Thailand",
+          Country: "Thailand",
           Area_km2: 513120,
           Population: 66482792,
           Density_pop_km2: 130,
@@ -865,7 +863,7 @@ module.exports = {
         },
         {
           Rank: 96,
-          Country_or_dependent_territory: "Ghana",
+          Country: "Ghana",
           Area_km2: 238533,
           Population: 30280811,
           Density_pop_km2: 127,
@@ -874,7 +872,7 @@ module.exports = {
         },
         {
           Rank: 97,
-          Country_or_dependent_territory: "Northern Mariana Islands (US)",
+          Country: "Northern Mariana Islands (US)",
           Area_km2: 457,
           Population: 56600,
           Density_pop_km2: 124,
@@ -883,7 +881,7 @@ module.exports = {
         },
         {
           Rank: 98,
-          Country_or_dependent_territory: "France",
+          Country: "France",
           Area_km2: 543965,
           Population: 67060000,
           Density_pop_km2: 123,
@@ -892,7 +890,7 @@ module.exports = {
         },
         {
           Rank: 99,
-          Country_or_dependent_territory: "Poland",
+          Country: "Poland",
           Area_km2: 312685,
           Population: 38386000,
           Density_pop_km2: 123,
@@ -901,7 +899,7 @@ module.exports = {
         },
         {
           Rank: 100,
-          Country_or_dependent_territory: "Jordan",
+          Country: "Jordan",
           Area_km2: 89342,
           Population: 10638536,
           Density_pop_km2: 119,
@@ -910,7 +908,7 @@ module.exports = {
         },
         {
           Rank: 101,
-          Country_or_dependent_territory: "United Arab Emirates",
+          Country: "United Arab Emirates",
           Area_km2: 83600,
           Population: 9770529,
           Density_pop_km2: 117,
@@ -919,7 +917,7 @@ module.exports = {
         },
         {
           Rank: 102,
-          Country_or_dependent_territory: "Azerbaijan",
+          Country: "Azerbaijan",
           Area_km2: 86600,
           Population: 10067108,
           Density_pop_km2: 116,
@@ -928,7 +926,7 @@ module.exports = {
         },
         {
           Rank: 103,
-          Country_or_dependent_territory: "Transnistria",
+          Country: "Transnistria",
           Area_km2: 4163,
           Population: 469000,
           Density_pop_km2: 113,
@@ -937,7 +935,7 @@ module.exports = {
         },
         {
           Rank: 104,
-          Country_or_dependent_territory: "Portugal",
+          Country: "Portugal",
           Area_km2: 92090,
           Population: 10276617,
           Density_pop_km2: 112,
@@ -946,7 +944,7 @@ module.exports = {
         },
         {
           Rank: 105,
-          Country_or_dependent_territory: "Slovakia",
+          Country: "Slovakia",
           Area_km2: 49036,
           Population: 5450421,
           Density_pop_km2: 111,
@@ -955,7 +953,7 @@ module.exports = {
         },
         {
           Rank: 106,
-          Country_or_dependent_territory: "Sierra Leone",
+          Country: "Sierra Leone",
           Area_km2: 71740,
           Population: 7901454,
           Density_pop_km2: 110,
@@ -964,7 +962,7 @@ module.exports = {
         },
         {
           Rank: 107,
-          Country_or_dependent_territory: "Austria",
+          Country: "Austria",
           Area_km2: 83879,
           Population: 8902600,
           Density_pop_km2: 106,
@@ -973,7 +971,7 @@ module.exports = {
         },
         {
           Rank: 108,
-          Country_or_dependent_territory: "Turkey",
+          Country: "Turkey",
           Area_km2: 783562,
           Population: 83154997,
           Density_pop_km2: 106,
@@ -982,7 +980,7 @@ module.exports = {
         },
         {
           Rank: 109,
-          Country_or_dependent_territory: "Northern Cyprus",
+          Country: "Northern Cyprus",
           Area_km2: 3355,
           Population: 351965,
           Density_pop_km2: 105,
@@ -991,7 +989,7 @@ module.exports = {
         },
         {
           Rank: 110,
-          Country_or_dependent_territory: "Hungary",
+          Country: "Hungary",
           Area_km2: 93029,
           Population: 9764000,
           Density_pop_km2: 105,
@@ -1000,7 +998,7 @@ module.exports = {
         },
         {
           Rank: 111,
-          Country_or_dependent_territory: "Benin",
+          Country: "Benin",
           Area_km2: 112622,
           Population: 11733059,
           Density_pop_km2: 104,
@@ -1009,7 +1007,7 @@ module.exports = {
         },
         {
           Rank: 112,
-          Country_or_dependent_territory: "Slovenia",
+          Country: "Slovenia",
           Area_km2: 20273,
           Population: 2084301,
           Density_pop_km2: 103,
@@ -1018,7 +1016,7 @@ module.exports = {
         },
         {
           Rank: 113,
-          Country_or_dependent_territory: "Cuba",
+          Country: "Cuba",
           Area_km2: 109884,
           Population: 11209628,
           Density_pop_km2: 102,
@@ -1027,7 +1025,7 @@ module.exports = {
         },
         {
           Rank: 114,
-          Country_or_dependent_territory: "Ethiopia",
+          Country: "Ethiopia",
           Area_km2: 1063652,
           Population: 107534882,
           Density_pop_km2: 101,
@@ -1036,7 +1034,7 @@ module.exports = {
         },
         {
           Rank: 115,
-          Country_or_dependent_territory: "Egypt",
+          Country: "Egypt",
           Area_km2: 1002450,
           Population: 100138465,
           Density_pop_km2: 100,
@@ -1045,7 +1043,7 @@ module.exports = {
         },
         {
           Rank: 116,
-          Country_or_dependent_territory: "Albania",
+          Country: "Albania",
           Area_km2: 28703,
           Population: 2862427,
           Density_pop_km2: 100,
@@ -1054,7 +1052,7 @@ module.exports = {
         },
         {
           Rank: 117,
-          Country_or_dependent_territory: "Malaysia",
+          Country: "Malaysia",
           Area_km2: 330803,
           Population: 32722760,
           Density_pop_km2: 99,
@@ -1063,7 +1061,7 @@ module.exports = {
         },
         {
           Rank: 118,
-          Country_or_dependent_territory: "Costa Rica",
+          Country: "Costa Rica",
           Area_km2: 51100,
           Population: 5058007,
           Density_pop_km2: 99,
@@ -1072,7 +1070,7 @@ module.exports = {
         },
         {
           Rank: 119,
-          Country_or_dependent_territory: "Armenia",
+          Country: "Armenia",
           Area_km2: 29743,
           Population: 2957500,
           Density_pop_km2: 99,
@@ -1081,7 +1079,7 @@ module.exports = {
         },
         {
           Rank: 120,
-          Country_or_dependent_territory: "Dominica",
+          Country: "Dominica",
           Area_km2: 739,
           Population: 71808,
           Density_pop_km2: 97,
@@ -1090,7 +1088,7 @@ module.exports = {
         },
         {
           Rank: 121,
-          Country_or_dependent_territory: "Spain",
+          Country: "Spain",
           Area_km2: 505990,
           Population: 46934632,
           Density_pop_km2: 93,
@@ -1099,7 +1097,7 @@ module.exports = {
         },
         {
           Rank: 122,
-          Country_or_dependent_territory: "Syria",
+          Country: "Syria",
           Area_km2: 185180,
           Population: 17070135,
           Density_pop_km2: 92,
@@ -1108,7 +1106,7 @@ module.exports = {
         },
         {
           Rank: 123,
-          Country_or_dependent_territory: "Cambodia",
+          Country: "Cambodia",
           Area_km2: 181035,
           Population: 16289270,
           Density_pop_km2: 90,
@@ -1117,7 +1115,7 @@ module.exports = {
         },
         {
           Rank: 124,
-          Country_or_dependent_territory: "Iraq",
+          Country: "Iraq",
           Area_km2: 438317,
           Population: 39309783,
           Density_pop_km2: 90,
@@ -1126,7 +1124,7 @@ module.exports = {
         },
         {
           Rank: 125,
-          Country_or_dependent_territory: "Serbia",
+          Country: "Serbia",
           Area_km2: 77474,
           Population: 6901188,
           Density_pop_km2: 89,
@@ -1135,7 +1133,7 @@ module.exports = {
         },
         {
           Rank: 126,
-          Country_or_dependent_territory: "Kenya",
+          Country: "Kenya",
           Area_km2: 581834,
           Population: 47564296,
           Density_pop_km2: 82,
@@ -1144,7 +1142,7 @@ module.exports = {
         },
         {
           Rank: 127,
-          Country_or_dependent_territory: "Senegal",
+          Country: "Senegal",
           Area_km2: 196722,
           Population: 16209125,
           Density_pop_km2: 82,
@@ -1153,7 +1151,7 @@ module.exports = {
         },
         {
           Rank: 128,
-          Country_or_dependent_territory: "Wallis & Futuna (France)",
+          Country: "Wallis & Futuna (France)",
           Area_km2: 142,
           Population: 11600,
           Density_pop_km2: 82,
@@ -1162,7 +1160,7 @@ module.exports = {
         },
         {
           Rank: 129,
-          Country_or_dependent_territory: "Honduras",
+          Country: "Honduras",
           Area_km2: 112492,
           Population: 9158345,
           Density_pop_km2: 81,
@@ -1171,7 +1169,7 @@ module.exports = {
         },
         {
           Rank: 130,
-          Country_or_dependent_territory: "Romania",
+          Country: "Romania",
           Area_km2: 238391,
           Population: 19405156,
           Density_pop_km2: 81,
@@ -1180,7 +1178,7 @@ module.exports = {
         },
         {
           Rank: 131,
-          Country_or_dependent_territory: "Greece",
+          Country: "Greece",
           Area_km2: 131957,
           Population: 10724599,
           Density_pop_km2: 81,
@@ -1189,7 +1187,7 @@ module.exports = {
         },
         {
           Rank: 132,
-          Country_or_dependent_territory: "North Macedonia",
+          Country: "North Macedonia",
           Area_km2: 25713,
           Population: 2077132,
           Density_pop_km2: 81,
@@ -1198,7 +1196,7 @@ module.exports = {
         },
         {
           Rank: 133,
-          Country_or_dependent_territory: "Myanmar",
+          Country: "Myanmar",
           Area_km2: 676577,
           Population: 54339766,
           Density_pop_km2: 80,
@@ -1207,7 +1205,7 @@ module.exports = {
         },
         {
           Rank: 134,
-          Country_or_dependent_territory: "Ivory Coast",
+          Country: "Ivory Coast",
           Area_km2: 322921,
           Population: 25823071,
           Density_pop_km2: 80,
@@ -1216,7 +1214,7 @@ module.exports = {
         },
         {
           Rank: 135,
-          Country_or_dependent_territory: "Morocco",
+          Country: "Morocco",
           Area_km2: 446550,
           Population: 35842238,
           Density_pop_km2: 80,
@@ -1225,7 +1223,7 @@ module.exports = {
         },
         {
           Rank: 136,
-          Country_or_dependent_territory: "French Polynesia (France)",
+          Country: "French Polynesia (France)",
           Area_km2: 3521,
           Population: 280600,
           Density_pop_km2: 80,
@@ -1234,7 +1232,7 @@ module.exports = {
         },
         {
           Rank: 137,
-          Country_or_dependent_territory: "Moldova",
+          Country: "Moldova",
           Area_km2: 33843,
           Population: 2681735,
           Density_pop_km2: 79,
@@ -1243,7 +1241,7 @@ module.exports = {
         },
         {
           Rank: 138,
-          Country_or_dependent_territory: "Timor-Leste",
+          Country: "Timor-Leste",
           Area_km2: 14919,
           Population: 1167242,
           Density_pop_km2: 78,
@@ -1252,7 +1250,7 @@ module.exports = {
         },
         {
           Rank: 139,
-          Country_or_dependent_territory: "Turks and Caicos Islands (UK)",
+          Country: "Turks and Caicos Islands (UK)",
           Area_km2: 497,
           Population: 37910,
           Density_pop_km2: 76,
@@ -1261,7 +1259,7 @@ module.exports = {
         },
         {
           Rank: 140,
-          Country_or_dependent_territory: "Lesotho",
+          Country: "Lesotho",
           Area_km2: 30355,
           Population: 2263010,
           Density_pop_km2: 75,
@@ -1270,7 +1268,7 @@ module.exports = {
         },
         {
           Rank: 141,
-          Country_or_dependent_territory: "Burkina Faso",
+          Country: "Burkina Faso",
           Area_km2: 270764,
           Population: 20244080,
           Density_pop_km2: 75,
@@ -1279,7 +1277,7 @@ module.exports = {
         },
         {
           Rank: 142,
-          Country_or_dependent_territory: "Uzbekistan",
+          Country: "Uzbekistan",
           Area_km2: 447400,
           Population: 32653900,
           Density_pop_km2: 73,
@@ -1288,7 +1286,7 @@ module.exports = {
         },
         {
           Rank: 143,
-          Country_or_dependent_territory: "Brunei",
+          Country: "Brunei",
           Area_km2: 5765,
           Population: 421300,
           Density_pop_km2: 73,
@@ -1297,7 +1295,7 @@ module.exports = {
         },
         {
           Rank: 144,
-          Country_or_dependent_territory: "Croatia",
+          Country: "Croatia",
           Area_km2: 56542,
           Population: 4087843,
           Density_pop_km2: 72,
@@ -1306,7 +1304,7 @@ module.exports = {
         },
         {
           Rank: 145,
-          Country_or_dependent_territory: "Tunisia",
+          Country: "Tunisia",
           Area_km2: 163610,
           Population: 11722038,
           Density_pop_km2: 72,
@@ -1315,7 +1313,7 @@ module.exports = {
         },
         {
           Rank: 146,
-          Country_or_dependent_territory: "Samoa",
+          Country: "Samoa",
           Area_km2: 2831,
           Population: 199300,
           Density_pop_km2: 70,
@@ -1324,7 +1322,7 @@ module.exports = {
         },
         {
           Rank: 147,
-          Country_or_dependent_territory: "Ireland",
+          Country: "Ireland",
           Area_km2: 70273,
           Population: 4921500,
           Density_pop_km2: 70,
@@ -1333,7 +1331,7 @@ module.exports = {
         },
         {
           Rank: 148,
-          Country_or_dependent_territory: "Ukraine",
+          Country: "Ukraine",
           Area_km2: 603000,
           Population: 41902416,
           Density_pop_km2: 69,
@@ -1342,7 +1340,7 @@ module.exports = {
         },
         {
           Rank: 149,
-          Country_or_dependent_territory: "Bosnia and Herzegovina",
+          Country: "Bosnia and Herzegovina",
           Area_km2: 51209,
           Population: 3511372,
           Density_pop_km2: 69,
@@ -1351,7 +1349,7 @@ module.exports = {
         },
         {
           Rank: 150,
-          Country_or_dependent_territory: "Eswatini (Swaziland)",
+          Country: "Eswatini (Swaziland)",
           Area_km2: 17364,
           Population: 1159250,
           Density_pop_km2: 67,
@@ -1360,7 +1358,7 @@ module.exports = {
         },
         {
           Rank: 151,
-          Country_or_dependent_territory: "Bonaire (Netherlands)",
+          Country: "Bonaire (Netherlands)",
           Area_km2: 288,
           Population: 18905,
           Density_pop_km2: 66,
@@ -1369,7 +1367,7 @@ module.exports = {
         },
         {
           Rank: 152,
-          Country_or_dependent_territory: "Yemen",
+          Country: "Yemen",
           Area_km2: 455000,
           Population: 28915284,
           Density_pop_km2: 64,
@@ -1378,7 +1376,7 @@ module.exports = {
         },
         {
           Rank: 153,
-          Country_or_dependent_territory: "Cook Islands (NZ)",
+          Country: "Cook Islands (NZ)",
           Area_km2: 237,
           Population: 15250,
           Density_pop_km2: 64,
@@ -1387,7 +1385,7 @@ module.exports = {
         },
         {
           Rank: 154,
-          Country_or_dependent_territory: "Mexico",
+          Country: "Mexico",
           Area_km2: 1967138,
           Population: 126577691,
           Density_pop_km2: 64,
@@ -1396,7 +1394,7 @@ module.exports = {
         },
         {
           Rank: 155,
-          Country_or_dependent_territory: "Tajikistan",
+          Country: "Tajikistan",
           Area_km2: 143100,
           Population: 9127000,
           Density_pop_km2: 64,
@@ -1405,7 +1403,7 @@ module.exports = {
         },
         {
           Rank: 156,
-          Country_or_dependent_territory: "Bulgaria",
+          Country: "Bulgaria",
           Area_km2: 111002,
           Population: 7000039,
           Density_pop_km2: 63,
@@ -1414,7 +1412,7 @@ module.exports = {
         },
         {
           Rank: 157,
-          Country_or_dependent_territory: "Ecuador",
+          Country: "Ecuador",
           Area_km2: 276841,
           Population: 17446584,
           Density_pop_km2: 63,
@@ -1423,7 +1421,7 @@ module.exports = {
         },
         {
           Rank: 158,
-          Country_or_dependent_territory: "Tanzania",
+          Country: "Tanzania",
           Area_km2: 945087,
           Population: 55890747,
           Density_pop_km2: 59,
@@ -1432,7 +1430,7 @@ module.exports = {
         },
         {
           Rank: 159,
-          Country_or_dependent_territory: "Panama",
+          Country: "Panama",
           Area_km2: 74177,
           Population: 4158783,
           Density_pop_km2: 56,
@@ -1441,7 +1439,7 @@ module.exports = {
         },
         {
           Rank: 160,
-          Country_or_dependent_territory: "Georgia",
+          Country: "Georgia",
           Area_km2: 69700,
           Population: 3729600,
           Density_pop_km2: 54,
@@ -1450,7 +1448,7 @@ module.exports = {
         },
         {
           Rank: 161,
-          Country_or_dependent_territory: "Nicaragua",
+          Country: "Nicaragua",
           Area_km2: 121428,
           Population: 6393824,
           Density_pop_km2: 53,
@@ -1459,7 +1457,7 @@ module.exports = {
         },
         {
           Rank: 162,
-          Country_or_dependent_territory: "Cameroon",
+          Country: "Cameroon",
           Area_km2: 466050,
           Population: 24348251,
           Density_pop_km2: 52,
@@ -1468,7 +1466,7 @@ module.exports = {
         },
         {
           Rank: 163,
-          Country_or_dependent_territory: "Iran",
+          Country: "Iran",
           Area_km2: 1648195,
           Population: 83290141,
           Density_pop_km2: 51,
@@ -1477,7 +1475,7 @@ module.exports = {
         },
         {
           Rank: 164,
-          Country_or_dependent_territory: "Norfolk Island (Australia)",
+          Country: "Norfolk Island (Australia)",
           Area_km2: 35,
           Population: 1748,
           Density_pop_km2: 50,
@@ -1486,7 +1484,7 @@ module.exports = {
         },
         {
           Rank: 165,
-          Country_or_dependent_territory: "Guinea",
+          Country: "Guinea",
           Area_km2: 245857,
           Population: 12218357,
           Density_pop_km2: 50,
@@ -1495,7 +1493,7 @@ module.exports = {
         },
         {
           Rank: 166,
-          Country_or_dependent_territory: "Afghanistan",
+          Country: "Afghanistan",
           Area_km2: 645807,
           Population: 31575018,
           Density_pop_km2: 49,
@@ -1504,7 +1502,7 @@ module.exports = {
         },
         {
           Rank: 167,
-          Country_or_dependent_territory: "Montserrat (UK)",
+          Country: "Montserrat (UK)",
           Area_km2: 102,
           Population: 4922,
           Density_pop_km2: 48,
@@ -1513,7 +1511,7 @@ module.exports = {
         },
         {
           Rank: 168,
-          Country_or_dependent_territory: "Fiji",
+          Country: "Fiji",
           Area_km2: 18333,
           Population: 884887,
           Density_pop_km2: 48,
@@ -1522,7 +1520,7 @@ module.exports = {
         },
         {
           Rank: 169,
-          Country_or_dependent_territory: "South Africa",
+          Country: "South Africa",
           Area_km2: 1220813,
           Population: 58775022,
           Density_pop_km2: 48,
@@ -1531,7 +1529,7 @@ module.exports = {
         },
         {
           Rank: 170,
-          Country_or_dependent_territory: "Equatorial Guinea",
+          Country: "Equatorial Guinea",
           Area_km2: 28051,
           Population: 1358276,
           Density_pop_km2: 48,
@@ -1540,7 +1538,7 @@ module.exports = {
         },
         {
           Rank: 171,
-          Country_or_dependent_territory: "Djibouti",
+          Country: "Djibouti",
           Area_km2: 23000,
           Population: 1078373,
           Density_pop_km2: 47,
@@ -1549,7 +1547,7 @@ module.exports = {
         },
         {
           Rank: 172,
-          Country_or_dependent_territory: "Belarus",
+          Country: "Belarus",
           Area_km2: 207600,
           Population: 9465300,
           Density_pop_km2: 46,
@@ -1558,7 +1556,7 @@ module.exports = {
         },
         {
           Rank: 173,
-          Country_or_dependent_territory: "Liberia",
+          Country: "Liberia",
           Area_km2: 97036,
           Population: 4475353,
           Density_pop_km2: 46,
@@ -1567,7 +1565,7 @@ module.exports = {
         },
         {
           Rank: 174,
-          Country_or_dependent_territory: "Montenegro",
+          Country: "Montenegro",
           Area_km2: 13812,
           Population: 622182,
           Density_pop_km2: 45,
@@ -1576,7 +1574,7 @@ module.exports = {
         },
         {
           Rank: 175,
-          Country_or_dependent_territory: "Madagascar",
+          Country: "Madagascar",
           Area_km2: 587041,
           Population: 25680342,
           Density_pop_km2: 44,
@@ -1585,7 +1583,7 @@ module.exports = {
         },
         {
           Rank: 176,
-          Country_or_dependent_territory: "Guinea-Bissau",
+          Country: "Guinea-Bissau",
           Area_km2: 36125,
           Population: 1604528,
           Density_pop_km2: 44,
@@ -1594,7 +1592,7 @@ module.exports = {
         },
         {
           Rank: 177,
-          Country_or_dependent_territory: "Lithuania",
+          Country: "Lithuania",
           Area_km2: 65300,
           Population: 2793466,
           Density_pop_km2: 43,
@@ -1603,7 +1601,7 @@ module.exports = {
         },
         {
           Rank: 178,
-          Country_or_dependent_territory: "Colombia",
+          Country: "Colombia",
           Area_km2: 1141748,
           Population: 46202800,
           Density_pop_km2: 40,
@@ -1612,7 +1610,7 @@ module.exports = {
         },
         {
           Rank: 179,
-          Country_or_dependent_territory: "Palau",
+          Country: "Palau",
           Area_km2: 444,
           Population: 17900,
           Density_pop_km2: 40,
@@ -1621,7 +1619,7 @@ module.exports = {
         },
         {
           Rank: 180,
-          Country_or_dependent_territory: "Cocos (Keeling) Islands (Australia)",
+          Country: "Cocos (Keeling) Islands (Australia)",
           Area_km2: 14,
           Population: 544,
           Density_pop_km2: 39,
@@ -1630,7 +1628,7 @@ module.exports = {
         },
         {
           Rank: 181,
-          Country_or_dependent_territory: "Zimbabwe",
+          Country: "Zimbabwe",
           Area_km2: 390757,
           Population: 15159624,
           Density_pop_km2: 39,
@@ -1639,7 +1637,7 @@ module.exports = {
         },
         {
           Rank: 182,
-          Country_or_dependent_territory: "Democratic Republic of the Congo",
+          Country: "Democratic Republic of the Congo",
           Area_km2: 2345095,
           Population: 86790567,
           Density_pop_km2: 37,
@@ -1648,7 +1646,7 @@ module.exports = {
         },
         {
           Rank: 183,
-          Country_or_dependent_territory: "Mozambique",
+          Country: "Mozambique",
           Area_km2: 799380,
           Population: 28571310,
           Density_pop_km2: 36,
@@ -1657,7 +1655,7 @@ module.exports = {
         },
         {
           Rank: 184,
-          Country_or_dependent_territory: "Venezuela",
+          Country: "Venezuela",
           Area_km2: 916445,
           Population: 32219521,
           Density_pop_km2: 35,
@@ -1666,7 +1664,7 @@ module.exports = {
         },
         {
           Rank: 185,
-          Country_or_dependent_territory: "Faroe Islands (Denmark)",
+          Country: "Faroe Islands (Denmark)",
           Area_km2: 1399,
           Population: 50844,
           Density_pop_km2: 34,
@@ -1675,7 +1673,7 @@ module.exports = {
         },
         {
           Rank: 186,
-          Country_or_dependent_territory: "United States",
+          Country: "United States",
           Area_km2: 9833517,
           Population: 329470935,
           Density_pop_km2: 34,
@@ -1684,7 +1682,7 @@ module.exports = {
         },
         {
           Rank: 187,
-          Country_or_dependent_territory: "Kyrgyzstan",
+          Country: "Kyrgyzstan",
           Area_km2: 199945,
           Population: 6309300,
           Density_pop_km2: 32,
@@ -1693,7 +1691,7 @@ module.exports = {
         },
         {
           Rank: 188,
-          Country_or_dependent_territory: "Latvia",
+          Country: "Latvia",
           Area_km2: 64562,
           Population: 1910400,
           Density_pop_km2: 30,
@@ -1702,7 +1700,7 @@ module.exports = {
         },
         {
           Rank: 189,
-          Country_or_dependent_territory: "Estonia",
+          Country: "Estonia",
           Area_km2: 45339,
           Population: 1324820,
           Density_pop_km2: 29,
@@ -1711,7 +1709,7 @@ module.exports = {
         },
         {
           Rank: 190,
-          Country_or_dependent_territory: "Eritrea",
+          Country: "Eritrea",
           Area_km2: 121100,
           Population: 3497117,
           Density_pop_km2: 29,
@@ -1720,7 +1718,7 @@ module.exports = {
         },
         {
           Rank: 191,
-          Country_or_dependent_territory: "Bahamas",
+          Country: "Bahamas",
           Area_km2: 13940,
           Population: 386870,
           Density_pop_km2: 28,
@@ -1729,7 +1727,7 @@ module.exports = {
         },
         {
           Rank: 192,
-          Country_or_dependent_territory: "Abkhazia",
+          Country: "Abkhazia",
           Area_km2: 8660,
           Population: 243206,
           Density_pop_km2: 28,
@@ -1738,7 +1736,7 @@ module.exports = {
         },
         {
           Rank: 193,
-          Country_or_dependent_territory: "Laos",
+          Country: "Laos",
           Area_km2: 236800,
           Population: 6492400,
           Density_pop_km2: 27,
@@ -1747,7 +1745,7 @@ module.exports = {
         },
         {
           Rank: 194,
-          Country_or_dependent_territory: "Saint Pierre and Miquelon (France)",
+          Country: "Saint Pierre and Miquelon (France)",
           Area_km2: 242,
           Population: 6081,
           Density_pop_km2: 25,
@@ -1756,7 +1754,7 @@ module.exports = {
         },
         {
           Rank: 195,
-          Country_or_dependent_territory: "Peru",
+          Country: "Peru",
           Area_km2: 1285216,
           Population: 32162184,
           Density_pop_km2: 25,
@@ -1765,7 +1763,7 @@ module.exports = {
         },
         {
           Rank: 196,
-          Country_or_dependent_territory: "Vanuatu",
+          Country: "Vanuatu",
           Area_km2: 12281,
           Population: 304500,
           Density_pop_km2: 25,
@@ -1774,7 +1772,7 @@ module.exports = {
         },
         {
           Rank: 197,
-          Country_or_dependent_territory: "Brazil",
+          Country: "Brazil",
           Area_km2: 8515767,
           Population: 211270518,
           Density_pop_km2: 25,
@@ -1783,7 +1781,7 @@ module.exports = {
         },
         {
           Rank: 198,
-          Country_or_dependent_territory: "Somalia",
+          Country: "Somalia",
           Area_km2: 637657,
           Population: 15181925,
           Density_pop_km2: 24,
@@ -1792,7 +1790,7 @@ module.exports = {
         },
         {
           Rank: 199,
-          Country_or_dependent_territory: "Solomon Islands",
+          Country: "Solomon Islands",
           Area_km2: 28370,
           Population: 682500,
           Density_pop_km2: 24,
@@ -1801,7 +1799,7 @@ module.exports = {
         },
         {
           Rank: 200,
-          Country_or_dependent_territory: "Angola",
+          Country: "Angola",
           Area_km2: 1246700,
           Population: 29250009,
           Density_pop_km2: 23,
@@ -1810,7 +1808,7 @@ module.exports = {
         },
         {
           Rank: 201,
-          Country_or_dependent_territory: "Chile",
+          Country: "Chile",
           Area_km2: 756096,
           Population: 17373831,
           Density_pop_km2: 23,
@@ -1819,7 +1817,7 @@ module.exports = {
         },
         {
           Rank: 202,
-          Country_or_dependent_territory: "Sweden",
+          Country: "Sweden",
           Area_km2: 450295,
           Population: 10365705,
           Density_pop_km2: 23,
@@ -1828,7 +1826,7 @@ module.exports = {
         },
         {
           Rank: 203,
-          Country_or_dependent_territory: "Zambia",
+          Country: "Zambia",
           Area_km2: 752612,
           Population: 16405229,
           Density_pop_km2: 22,
@@ -1837,7 +1835,7 @@ module.exports = {
         },
         {
           Rank: 204,
-          Country_or_dependent_territory: "Sudan",
+          Country: "Sudan",
           Area_km2: 1839542,
           Population: 40782742,
           Density_pop_km2: 22,
@@ -1846,7 +1844,7 @@ module.exports = {
         },
         {
           Rank: 205,
-          Country_or_dependent_territory: "Bhutan",
+          Country: "Bhutan",
           Area_km2: 38394,
           Population: 824148,
           Density_pop_km2: 21,
@@ -1855,7 +1853,7 @@ module.exports = {
         },
         {
           Rank: 206,
-          Country_or_dependent_territory: "Uruguay[note 5]",
+          Country: "Uruguay[note 5]",
           Area_km2: 176215,
           Population: 3518553,
           Density_pop_km2: 20,
@@ -1864,7 +1862,7 @@ module.exports = {
         },
         {
           Rank: 207,
-          Country_or_dependent_territory: "South Sudan",
+          Country: "South Sudan",
           Area_km2: 644329,
           Population: 12778250,
           Density_pop_km2: 20,
@@ -1873,7 +1871,7 @@ module.exports = {
         },
         {
           Rank: 208,
-          Country_or_dependent_territory: "Somaliland",
+          Country: "Somaliland",
           Area_km2: 176120,
           Population: 3508180,
           Density_pop_km2: 20,
@@ -1882,7 +1880,7 @@ module.exports = {
         },
         {
           Rank: 209,
-          Country_or_dependent_territory: "Åland Islands (Finland)",
+          Country: "Åland Islands (Finland)",
           Area_km2: 1552,
           Population: 29789,
           Density_pop_km2: 19,
@@ -1891,7 +1889,7 @@ module.exports = {
         },
         {
           Rank: 210,
-          Country_or_dependent_territory: "Niger",
+          Country: "Niger",
           Area_km2: 1186408,
           Population: 22314743,
           Density_pop_km2: 19,
@@ -1900,7 +1898,7 @@ module.exports = {
         },
         {
           Rank: 211,
-          Country_or_dependent_territory: "Papua New Guinea",
+          Country: "Papua New Guinea",
           Area_km2: 462840,
           Population: 8935000,
           Density_pop_km2: 19,
@@ -1909,7 +1907,7 @@ module.exports = {
         },
         {
           Rank: 212,
-          Country_or_dependent_territory: "New Zealand",
+          Country: "New Zealand",
           Area_km2: 270467,
           Population: 4971205,
           Density_pop_km2: 18,
@@ -1918,7 +1916,7 @@ module.exports = {
         },
         {
           Rank: 213,
-          Country_or_dependent_territory: "Algeria",
+          Country: "Algeria",
           Area_km2: 2381741,
           Population: 43000000,
           Density_pop_km2: 18,
@@ -1927,7 +1925,7 @@ module.exports = {
         },
         {
           Rank: 214,
-          Country_or_dependent_territory: "Paraguay",
+          Country: "Paraguay",
           Area_km2: 406752,
           Population: 7052983,
           Density_pop_km2: 17,
@@ -1936,7 +1934,7 @@ module.exports = {
         },
         {
           Rank: 215,
-          Country_or_dependent_territory: "Belize",
+          Country: "Belize",
           Area_km2: 22965,
           Population: 398050,
           Density_pop_km2: 17,
@@ -1945,7 +1943,7 @@ module.exports = {
         },
         {
           Rank: 216,
-          Country_or_dependent_territory: "Norway",
+          Country: "Norway",
           Area_km2: 323808,
           Population: 5367580,
           Density_pop_km2: 17,
@@ -1954,7 +1952,7 @@ module.exports = {
         },
         {
           Rank: 217,
-          Country_or_dependent_territory: "Finland",
+          Country: "Finland",
           Area_km2: 338424,
           Population: 5527405,
           Density_pop_km2: 16,
@@ -1963,7 +1961,7 @@ module.exports = {
         },
         {
           Rank: 218,
-          Country_or_dependent_territory: "Argentina",
+          Country: "Argentina",
           Area_km2: 2780400,
           Population: 44938712,
           Density_pop_km2: 16,
@@ -1972,7 +1970,7 @@ module.exports = {
         },
         {
           Rank: 219,
-          Country_or_dependent_territory: "Saudi Arabia",
+          Country: "Saudi Arabia",
           Area_km2: 2149690,
           Population: 34218169,
           Density_pop_km2: 16,
@@ -1981,7 +1979,7 @@ module.exports = {
         },
         {
           Rank: 220,
-          Country_or_dependent_territory: "Republic of the Congo",
+          Country: "Republic of the Congo",
           Area_km2: 342000,
           Population: 5399895,
           Density_pop_km2: 16,
@@ -1990,7 +1988,7 @@ module.exports = {
         },
         {
           Rank: 221,
-          Country_or_dependent_territory: "Mali",
+          Country: "Mali",
           Area_km2: 1248574,
           Population: 19107706,
           Density_pop_km2: 15,
@@ -1999,7 +1997,7 @@ module.exports = {
         },
         {
           Rank: 222,
-          Country_or_dependent_territory: "Christmas Island (Australia)",
+          Country: "Christmas Island (Australia)",
           Area_km2: 137,
           Population: 2072,
           Density_pop_km2: 15,
@@ -2008,7 +2006,7 @@ module.exports = {
         },
         {
           Rank: 223,
-          Country_or_dependent_territory: "New Caledonia (France)",
+          Country: "New Caledonia (France)",
           Area_km2: 18575,
           Population: 258958,
           Density_pop_km2: 14,
@@ -2017,7 +2015,7 @@ module.exports = {
         },
         {
           Rank: 224,
-          Country_or_dependent_territory: "Oman",
+          Country: "Oman",
           Area_km2: 309500,
           Population: 4183841,
           Density_pop_km2: 14,
@@ -2026,8 +2024,7 @@ module.exports = {
         },
         {
           Rank: 225,
-          Country_or_dependent_territory:
-            "Saint Helena, Ascension and Tristan da Cunha (UK)",
+          Country: "Saint Helena, Ascension and Tristan da Cunha (UK)",
           Area_km2: 394,
           Population: 5633,
           Density_pop_km2: 14,
@@ -2036,7 +2033,7 @@ module.exports = {
         },
         {
           Rank: 226,
-          Country_or_dependent_territory: "South Ossetia",
+          Country: "South Ossetia",
           Area_km2: 3900,
           Population: 53532,
           Density_pop_km2: 14,
@@ -2045,7 +2042,7 @@ module.exports = {
         },
         {
           Rank: 227,
-          Country_or_dependent_territory: "Artsakh",
+          Country: "Artsakh",
           Area_km2: 11458,
           Population: 150932,
           Density_pop_km2: 13,
@@ -2054,7 +2051,7 @@ module.exports = {
         },
         {
           Rank: 228,
-          Country_or_dependent_territory: "Turkmenistan",
+          Country: "Turkmenistan",
           Area_km2: 491210,
           Population: 5851466,
           Density_pop_km2: 12,
@@ -2063,7 +2060,7 @@ module.exports = {
         },
         {
           Rank: 229,
-          Country_or_dependent_territory: "Chad",
+          Country: "Chad",
           Area_km2: 1284000,
           Population: 15353184,
           Density_pop_km2: 12,
@@ -2072,7 +2069,7 @@ module.exports = {
         },
         {
           Rank: 230,
-          Country_or_dependent_territory: "Bolivia",
+          Country: "Bolivia",
           Area_km2: 1098581,
           Population: 11307314,
           Density_pop_km2: 10,
@@ -2081,7 +2078,7 @@ module.exports = {
         },
         {
           Rank: 231,
-          Country_or_dependent_territory: "Russia",
+          Country: "Russia",
           Area_km2: 17125242,
           Population: 146877088,
           Density_pop_km2: 9,
@@ -2090,7 +2087,7 @@ module.exports = {
         },
         {
           Rank: 232,
-          Country_or_dependent_territory: "Gabon",
+          Country: "Gabon",
           Area_km2: 267667,
           Population: 2067561,
           Density_pop_km2: 8,
@@ -2099,7 +2096,7 @@ module.exports = {
         },
         {
           Rank: 233,
-          Country_or_dependent_territory: "Central African Republic",
+          Country: "Central African Republic",
           Area_km2: 622436,
           Population: 4737423,
           Density_pop_km2: 8,
@@ -2108,7 +2105,7 @@ module.exports = {
         },
         {
           Rank: 234,
-          Country_or_dependent_territory: "Kazakhstan",
+          Country: "Kazakhstan",
           Area_km2: 2724900,
           Population: 18592700,
           Density_pop_km2: 7,
@@ -2117,7 +2114,7 @@ module.exports = {
         },
         {
           Rank: 235,
-          Country_or_dependent_territory: "Niue (NZ)",
+          Country: "Niue (NZ)",
           Area_km2: 261,
           Population: 1613,
           Density_pop_km2: 6,
@@ -2126,7 +2123,7 @@ module.exports = {
         },
         {
           Rank: 236,
-          Country_or_dependent_territory: "Botswana",
+          Country: "Botswana",
           Area_km2: 581730,
           Population: 2302878,
           Density_pop_km2: 4,
@@ -2135,7 +2132,7 @@ module.exports = {
         },
         {
           Rank: 237,
-          Country_or_dependent_territory: "Mauritania",
+          Country: "Mauritania",
           Area_km2: 1030700,
           Population: 3984233,
           Density_pop_km2: 4,
@@ -2144,7 +2141,7 @@ module.exports = {
         },
         {
           Rank: 238,
-          Country_or_dependent_territory: "Canada",
+          Country: "Canada",
           Area_km2: 9984670,
           Population: 37961548,
           Density_pop_km2: 4,
@@ -2153,7 +2150,7 @@ module.exports = {
         },
         {
           Rank: 239,
-          Country_or_dependent_territory: "Libya",
+          Country: "Libya",
           Area_km2: 1770060,
           Population: 6470956,
           Density_pop_km2: 3.7,
@@ -2162,7 +2159,7 @@ module.exports = {
         },
         {
           Rank: 240,
-          Country_or_dependent_territory: "Guyana",
+          Country: "Guyana",
           Area_km2: 214999,
           Population: 782225,
           Density_pop_km2: 3.6,
@@ -2171,7 +2168,7 @@ module.exports = {
         },
         {
           Rank: 241,
-          Country_or_dependent_territory: "Suriname",
+          Country: "Suriname",
           Area_km2: 163820,
           Population: 568301,
           Density_pop_km2: 3.5,
@@ -2180,7 +2177,7 @@ module.exports = {
         },
         {
           Rank: 242,
-          Country_or_dependent_territory: "Iceland",
+          Country: "Iceland",
           Area_km2: 102775,
           Population: 360390,
           Density_pop_km2: 3.5,
@@ -2189,7 +2186,7 @@ module.exports = {
         },
         {
           Rank: 243,
-          Country_or_dependent_territory: "Australia",
+          Country: "Australia",
           Area_km2: 7692024,
           Population: 25649909,
           Density_pop_km2: 3,
@@ -2198,7 +2195,7 @@ module.exports = {
         },
         {
           Rank: 244,
-          Country_or_dependent_territory: "Namibia",
+          Country: "Namibia",
           Area_km2: 825118,
           Population: 2413643,
           Density_pop_km2: 2.9,
@@ -2207,7 +2204,7 @@ module.exports = {
         },
         {
           Rank: 245,
-          Country_or_dependent_territory: "French Guiana (France)",
+          Country: "French Guiana (France)",
           Area_km2: 86504,
           Population: 244118,
           Density_pop_km2: 2.8,
@@ -2216,7 +2213,7 @@ module.exports = {
         },
         {
           Rank: 246,
-          Country_or_dependent_territory: "Western Sahara",
+          Country: "Western Sahara",
           Area_km2: 252120,
           Population: 567421,
           Density_pop_km2: 2.3,
@@ -2225,7 +2222,7 @@ module.exports = {
         },
         {
           Rank: 247,
-          Country_or_dependent_territory: "Mongolia",
+          Country: "Mongolia",
           Area_km2: 1564100,
           Population: 3000000,
           Density_pop_km2: 1.9,
@@ -2234,7 +2231,7 @@ module.exports = {
         },
         {
           Rank: 248,
-          Country_or_dependent_territory: "Pitcairn Islands (UK)",
+          Country: "Pitcairn Islands (UK)",
           Area_km2: 47.3,
           Population: 56,
           Density_pop_km2: 1.2,
@@ -2243,7 +2240,7 @@ module.exports = {
         },
         {
           Rank: 249,
-          Country_or_dependent_territory: "Falkland Islands (UK)",
+          Country: "Falkland Islands (UK)",
           Area_km2: 12173,
           Population: 2563,
           Density_pop_km2: 0.21,
@@ -2252,7 +2249,7 @@ module.exports = {
         },
         {
           Rank: 250,
-          Country_or_dependent_territory: "Svalbard and Jan Mayen (Norway)",
+          Country: "Svalbard and Jan Mayen (Norway)",
           Area_km2: 61399,
           Population: 2655,
           Density_pop_km2: 0.04,
@@ -2261,7 +2258,7 @@ module.exports = {
         },
         {
           Rank: 251,
-          Country_or_dependent_territory: "Greenland (Denmark)",
+          Country: "Greenland (Denmark)",
           Area_km2: 2166000,
           Population: 55877,
           Density_pop_km2: 0.03,
