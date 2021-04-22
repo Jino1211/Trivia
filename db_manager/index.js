@@ -12,7 +12,6 @@ app.get("/question", (req, res) => {
   let third = numOfQuestion % 3 === 0 ? true : false;
   getQuestion(third)
     .then((result) => {
-      console.log(result);
       currentQuestion = result;
       res.status(200).json({
         question: result.question,

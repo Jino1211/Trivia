@@ -2,6 +2,7 @@ const { Op, Sequelize } = require("sequelize");
 const { questions, saved_questions } = require("./models");
 const models = require(`./models`);
 let question;
+const history = [];
 
 //checking the kind of the type 1,3 questions (max/min).
 const checkIncludesText = (question) => {
@@ -67,15 +68,23 @@ const typeSaved = (saved) => {
   const currentQuestion = { question: "", options: [], answer: "" };
 
   currentQuestion.question = saved.question;
-  currentQuestion.options =
-    saved.option_3 && save.option_4
-      ? [saved.option_1, saved.option_2, saved.option_3, saved.option_4]
-      : saved.option_1 === "0"
-      ? [false, true]
-      : [true, false];
+  currentQuestion.options = saved.option_3
+    ? [saved.option_1, saved.option_2, saved.option_3, saved.option_4]
+    : saved.option_1 === "0"
+    ? [false, true]
+    : [true, false];
   currentQuestion.answer = saved.answer;
-  console.log(currentQuestion);
   return currentQuestion;
+};
+
+//check if the current question was already displayed to the client
+const isInHistory = () => {
+  let bool = false;
+  history.forEach((ques) => {
+    if (ques.question === question.question && ques.answer === question.answer)
+      bool = true;
+  });
+  return bool;
 };
 
 // main query for navigating between questions types.
@@ -119,6 +128,8 @@ const getQuestion = async (third) => {
         break;
     }
   }
+  if (isInHistory()) getQuestion();
+  history.push(question);
   return question;
 };
 
