@@ -8,7 +8,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      str_quetion: {
+      question: {
         type: Sequelize.STRING
       },
       option_1: {
@@ -29,8 +29,8 @@ module.exports = {
       rate: {
         type: Sequelize.FLOAT
       },
-      amount_of_time: {
-        type: Sequelize.FLOAT
+      amount_of_times_rated: {
+        type: Sequelize.INTEGER
       },
       created_at: {
         allowNull: false,
