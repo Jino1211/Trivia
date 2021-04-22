@@ -10,10 +10,10 @@ const checkIncludesText = (question) => {
 
 //function for handling the type 1 questions.
 const type1 = (countries, { question, column }) => {
-  const sendData = { question: "", option: [] };
+  const sendData = { question: "", options: [] };
   const isMax = checkIncludesText(question);
   sendData.question = question;
-  countries.map((country) => sendData.option.push(country.Country));
+  countries.map((country) => sendData.options.push(country.Country));
   countries.sort((a, b) => b[column] - a[column]);
   isMax
     ? (savedAnswer = countries[0].toJSON())
@@ -23,7 +23,15 @@ const type1 = (countries, { question, column }) => {
   console.log(savedAnswer);
 };
 
-const type2 = () => {};
+const type2 = (countries, { question, column }) => {
+  const countryArr = [...countries];
+  const sendData = { question: "", options: [] };
+  const ranAns = Math.floor(Math.random() * 4);
+  sendData.question = question + " " + countryArr[ranAns].Country;
+  const answer = countryArr[ranAns][column];
+  countries.map((country) => sendData.options.push(country[column]));
+  console.log(sendData);
+};
 
 // main query for navigating between questions types.
 questions
@@ -38,7 +46,7 @@ questions
         " " +
         result["column"]
     );
-    switch (result["type"]) {
+    switch (result.type) {
       case 1:
         table
           .findAll({ order: Sequelize.literal("rand()"), limit: 4 })
@@ -46,6 +54,15 @@ questions
             type1(countries, result);
           });
       case 2:
+        table
+          .findAll({
+            order: Sequelize.literal("rand()"),
+            group: result.column,
+            limit: 4,
+          })
+          .then((countries) => {
+            type2(countries, result);
+          });
 
       case 3:
     }
