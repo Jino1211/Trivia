@@ -100,6 +100,7 @@ questions
     }
   });
 
+//Function for saving a new rated question
 const saveQuestion = (rate, currentQuestion) => {
   saved_questions
     .create({
@@ -117,6 +118,7 @@ const saveQuestion = (rate, currentQuestion) => {
     .then((x) => console.log(x.toJSON()));
 };
 
+//Function for updating an already rated question
 const updateSaveQuestion = (savedQuestion, { question }, rate) => {
   saved_questions
     .update(
@@ -131,6 +133,7 @@ const updateSaveQuestion = (savedQuestion, { question }, rate) => {
     .then((x) => console.log(x));
 };
 
+//Function to distinguish between already rated questions to new rated questions
 const handleNewRate = async () => {
   const { rate } = req.body;
   const result = await saved_questions.findOne({
