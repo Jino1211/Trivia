@@ -133,8 +133,7 @@ const updateSaveQuestion = (savedQuestion, { question }, rate) => {
 };
 
 //Function to distinguish between already rated questions to new rated questions
-const handleNewRate = async () => {
-  const { rate } = req.body;
+const handleNewRate = async (rate) => {
   const result = await saved_questions.findOne({
     where: { question: question.question },
   });
@@ -142,5 +141,5 @@ const handleNewRate = async () => {
     ? updateSaveQuestion(result, question, rate)
     : saveQuestion(rate, question);
 };
-module.exports = { getQuestion };
+module.exports = { getQuestion, handleNewRate };
 console.log(getQuestion().then((res) => res));
