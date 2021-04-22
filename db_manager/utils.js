@@ -1,7 +1,7 @@
 const { Op, Sequelize } = require("sequelize");
 const { questions, saved_questions } = require("./models");
 const models = require(`./models`);
-let currentQuestion = {};
+let question;
 
 //checking the kind of the type 1,3 questions (max/min).
 const checkIncludesText = (question) => {
@@ -11,7 +11,7 @@ const checkIncludesText = (question) => {
 
 //function for handling the type 1 questions.
 const type1 = (countries, { question, column }) => {
-  currentQuestion = { question: "", options: [], answer: "" };
+  const currentQuestion = { question: "", options: [], answer: "" };
   const isMax = checkIncludesText(question);
   const noDashColumn = column.replace(/\_/g, " ");
   currentQuestion.question = question;
@@ -34,24 +34,24 @@ const type1 = (countries, { question, column }) => {
         countries[3][column]);
   currentQuestion.answer = answer;
 
-  console.log(currentQuestion);
+  return currentQuestion;
 };
 
 //function for handling the type 2 questions.
 const type2 = (countries, { question, column }) => {
-  currentQuestion = { question: "", options: [], answer: "" };
+  const currentQuestion = { question: "", options: [], answer: "" };
   const ranAns = Math.floor(Math.random() * 4);
   currentQuestion.question = question + " " + countries[ranAns].Country;
   const answer = countries[ranAns][column];
   countries.map((country) => currentQuestion.options.push(country[column]));
   currentQuestion.answer = answer;
 
-  console.log(currentQuestion);
+  return currentQuestion;
 };
 
 //function for handling the type 3 questions.
 const type3 = (countries, { question, column }) => {
-  currentQuestion = { question: "", options: [true, false], answer: "" };
+  const currentQuestion = { question: "", options: [true, false], answer: "" };
   currentQuestion.question =
     question
       .replace("variable-x", countries[0].Country)
@@ -59,57 +59,56 @@ const type3 = (countries, { question, column }) => {
   const answer = countries[0][column] > countries[1][column] ? true : false;
   currentQuestion.answer = answer;
 
-  console.log(currentQuestion);
+  return currentQuestion;
 };
 
 // main query for navigating between questions types.
-questions
-  .findOne({ order: Sequelize.literal("rand()"), where: { type: 1 } })
-  .then((result) => {
-    const table = models[`${result["table"]}`];
-
-    switch (result.type) {
-      case 1:
-        table
-          .findAll({ order: Sequelize.literal("rand()"), limit: 4 })
-          .then((countries) => {
-            type1(countries, result);
-          });
-        break;
-      case 2:
-        table
-          .findAll({
-            order: Sequelize.literal("rand()"),
-            group: result.column,
-            limit: 4,
-          })
-          .then((countries) => {
-            type2(countries, result);
-          });
-        break;
-
-      case 3:
-        table
-          .findAll({
-            order: Sequelize.literal("rand()"),
-            limit: 2,
-          })
-          .then((countries) => {
-            type3(countries, result);
-          });
-    }
+const getQuestion = async () => {
+  const result = await questions.findOne({
+    order: Sequelize.literal("rand()"),
   });
+  const table = models[`${result["table"]}`];
+  let countries;
+  switch (result.type) {
+    case 1:
+      countries = await table.findAll({
+        order: Sequelize.literal("rand()"),
+        limit: 4,
+      });
+      question = type1(countries, result);
+      break;
+
+    case 2:
+      countries = await table.findAll({
+        order: Sequelize.literal("rand()"),
+        group: result.column,
+        limit: 4,
+      });
+      question = type2(countries, result);
+      break;
+
+    case 3:
+      countries = await table.findAll({
+        order: Sequelize.literal("rand()"),
+        limit: 2,
+      });
+      question = type3(countries, result);
+      break;
+  }
+
+  return question;
+};
 
 //Function for saving a new rated question
-const saveQuestion = (rate, currentQuestion) => {
+const saveQuestion = (rate, question) => {
   saved_questions
     .create({
-      question: currentQuestion.question,
-      option_1: currentQuestion.options[0],
-      option_2: currentQuestion.options[1],
-      option_3: currentQuestion.options[2],
-      option_4: currentQuestion.options[3],
-      answer: currentQuestion.answer,
+      question: question.question,
+      option_1: question.options[0],
+      option_2: question.options[1],
+      option_3: question.options[2],
+      option_4: question.options[3],
+      answer: question.answer,
       rate: rate,
       amount_of_times_rated: 1,
       created_at: new Date().toLocaleDateString(),
@@ -137,9 +136,11 @@ const updateSaveQuestion = (savedQuestion, { question }, rate) => {
 const handleNewRate = async () => {
   const { rate } = req.body;
   const result = await saved_questions.findOne({
-    where: { question: currentQuestion.question },
+    where: { question: question.question },
   });
   result
-    ? updateSaveQuestion(result, currentQuestion, rate)
-    : saveQuestion(rate, currentQuestion);
+    ? updateSaveQuestion(result, question, rate)
+    : saveQuestion(rate, question);
 };
+module.exports = { getQuestion };
+console.log(getQuestion().then((res) => res));
