@@ -1,11 +1,6 @@
 const express = require("express");
 const app = express();
-const {
-  getQuestion,
-  handleNewRate,
-  saveUser,
-  generateWeightedSavedQuestionArr,
-} = require("./utils");
+const { getQuestion, handleNewRate, saveUser } = require("./utils");
 let currentQuestion;
 let numOfQuestion = 0;
 const historyOfPlayer = {
@@ -25,13 +20,8 @@ app.post("/createuser", (req, res) => {
   historyOfPlayer.difficulty = difficulty;
   historyOfPlayer.score = 0;
   historyOfPlayer.playerQuestionsAndRates = [];
-  generateWeightedSavedQuestionArr()
-    .then(() => {
-      res.status(200).json({ message: "User was successfully created" });
-    })
-    .catch(() =>
-      res.status(200).json({ massage: "Cannot pull saved questions" })
-    );
+
+  res.status(200).json({ message: "User was successfully created" });
 });
 
 //Entry point for sending  new questions for the users
@@ -73,15 +63,9 @@ app.post("/finish", (req, res) => {
   const promises = [];
   promises.push(saveUser(historyOfPlayer));
   historyOfPlayer.playerQuestionsAndRates.forEach((question) => {
-    if (question.rate) {
-      promises.push(
-        handleNewRate(
-          question,
-          historyOfPlayer.difficulty,
-          historyOfPlayer.score
-        )
-      );
-    }
+    promises.push(
+      handleNewRate(question, historyOfPlayer.difficulty, historyOfPlayer.score)
+    );
   });
   Promise.all(promises)
     .then(() =>
