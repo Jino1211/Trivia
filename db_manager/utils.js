@@ -3,6 +3,7 @@ const { questions, saved_questions, users } = require("./models");
 const models = require(`./models`);
 let question;
 const history = [];
+const questionsDuplicateByWeight = [];
 
 //checking the kind of the type 1,3 questions (max/min).
 const checkIncludesText = (question) => {
@@ -87,7 +88,7 @@ const isInHistory = () => {
   return bool;
 };
 
-//
+//Function for handling easy questions by their type.
 const handleEasyTypes = async (result, table) => {
   let countries;
   switch (result.type) {
@@ -118,7 +119,7 @@ const handleEasyTypes = async (result, table) => {
   }
 };
 
-//
+//Function for handling hard questions by their type
 const handleDifficultTypes = async (result, table) => {
   let countries;
   const length = (await table.count({})) - 4;
@@ -161,10 +162,7 @@ const handleDifficultTypes = async (result, table) => {
 // main query for navigating between questions types.
 const getQuestion = async (third, difficulty) => {
   if (third) {
-    const saved = await saved_questions.findOne({
-      order: Sequelize.literal("rand()"),
-    });
-    question = typeSaved(saved);
+    question = typeSaved(getFromWeightedArr());
   } else {
     const result = await questions.findOne({
       order: Sequelize.literal("rand()"),
@@ -180,12 +178,8 @@ const getQuestion = async (third, difficulty) => {
   return question;
 };
 
-//Function for saving a new rated question
+//Function for saving a new rated question.
 const saveNewQuestion = (usersQuestion, difficulty, score) => {
-  console.log("score");
-  console.log(score);
-  console.log("difficulty");
-  console.log(difficulty);
   saved_questions
     .create({
       question: usersQuestion.question,
@@ -206,11 +200,8 @@ const saveNewQuestion = (usersQuestion, difficulty, score) => {
   console.log("finish save New Question ");
 };
 
-//Function for updating an already rated question
+//Function for updating an already rated question.
 const updateSavedQuestion = (result, usersQuestion, score) => {
-  console.log(result.rates_multiply_points + score * usersQuestion.rate);
-  console.log(result.points_per_player + score);
-
   saved_questions
     .update(
       {
@@ -227,24 +218,17 @@ const updateSavedQuestion = (result, usersQuestion, score) => {
     .then((x) => console.log(x));
 };
 
-//Function to distinguish between already rated questions to new rated questions
+//Function to distinguish between already rated questions to new rated questions.
 const handleNewRate = async (usersQuestion, difficulty, score) => {
-  console.log("usersQuestion.question");
-  console.log(usersQuestion.question);
-
   const result = await saved_questions.findOne({
     where: { question: usersQuestion.question },
   });
-
-  console.log("result");
-  console.log(result);
   result
     ? updateSavedQuestion(result, usersQuestion, score)
     : saveNewQuestion(usersQuestion, difficulty, score);
-  console.log("finish handleNewRate ");
 };
 
-//Function to save user and there score in the database
+//Function to save user and there score in the database.
 const saveUser = ({ user, score }) => {
   users
     .create({
@@ -254,4 +238,35 @@ const saveUser = ({ user, score }) => {
     .then((x) => console.log(x));
 };
 
-module.exports = { getQuestion, handleNewRate, saveUser };
+//Function for generating an array of saved questions,with frequency based on their rate.
+const generateWeightedSavedQuestionArr = async () => {
+  const savedQuestions = await saved_questions.findAll({});
+  let totalRate = 0;
+  savedQuestions.map((question) => (totalRate += question.rate));
+  savedQuestions.map(
+    (question) =>
+      (question.weight = Math.floor((question.rate / totalRate) * 100))
+  );
+  savedQuestions.forEach((question) => {
+    for (let i = 0; i < question.weight; i++) {
+      questionsDuplicateByWeight.push(question);
+    }
+  });
+};
+
+//Function for getting a random question from the weighted array.
+const getFromWeightedArr = () => {
+  const randomQuestion = Math.floor(
+    Math.random() * questionsDuplicateByWeight.length
+  );
+
+  console.log(questionsDuplicateByWeight[randomQuestion].toJSON());
+  return questionsDuplicateByWeight[randomQuestion];
+};
+
+module.exports = {
+  getQuestion,
+  handleNewRate,
+  saveUser,
+  generateWeightedSavedQuestionArr,
+};
