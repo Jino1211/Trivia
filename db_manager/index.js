@@ -1,6 +1,11 @@
 const express = require("express");
 const app = express();
-const { getQuestion, handleNewRate, saveUser } = require("./utils");
+const {
+  getQuestion,
+  handleNewRate,
+  saveUser,
+  generateWeightedSavedQuestionArr,
+} = require("./utils");
 let currentQuestion;
 let numOfQuestion = 0;
 const historyOfPlayer = {
@@ -20,8 +25,13 @@ app.post("/createuser", (req, res) => {
   historyOfPlayer.difficulty = difficulty;
   historyOfPlayer.score = 0;
   historyOfPlayer.playerQuestionsAndRates = [];
-
-  res.status(200).json({ message: "User was successfully created" });
+  generateWeightedSavedQuestionArr()
+    .then(() => {
+      res.status(200).json({ message: "User was successfully created" });
+    })
+    .catch(() =>
+      res.status(200).json({ massage: "Cannot pull saved questions" })
+    );
 });
 
 //Entry point for sending  new questions for the users
@@ -58,13 +68,20 @@ app.put("/update", (req, res) => {
   res.status(201).end();
 });
 
+//Entry point for saving the users data when he finished a game
 app.post("/finish", (req, res) => {
   const promises = [];
   promises.push(saveUser(historyOfPlayer));
   historyOfPlayer.playerQuestionsAndRates.forEach((question) => {
-    promises.push(
-      handleNewRate(question, historyOfPlayer.difficulty, historyOfPlayer.score)
-    );
+    if (question.rate) {
+      promises.push(
+        handleNewRate(
+          question,
+          historyOfPlayer.difficulty,
+          historyOfPlayer.score
+        )
+      );
+    }
   });
   Promise.all(promises)
     .then(() =>
