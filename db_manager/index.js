@@ -9,6 +9,7 @@ const historyOfPlayer = {
   score: 0,
   playerQuestionsAndRates: [],
 };
+const fish = "fish";
 
 app.use(express.json());
 
