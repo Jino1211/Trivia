@@ -68,6 +68,7 @@ app.put("/update", (req, res) => {
   res.status(201).end();
 });
 
+//Entry point for saving the users data when he finished a game
 app.post("/finish", (req, res) => {
   const promises = [];
   promises.push(saveUser(historyOfPlayer));
