@@ -176,45 +176,66 @@ const getQuestion = async (third, difficulty) => {
 };
 
 //Function for saving a new rated question
-const saveQuestion = (rate, question) => {
+const saveNewQuestion = (usersQuestion, difficulty, score) => {
+  console.log("score");
+  console.log(score);
+  console.log("difficulty");
+  console.log(difficulty);
   saved_questions
     .create({
-      question: question.question,
-      option_1: question.options[0],
-      option_2: question.options[1],
-      option_3: question.options[2],
-      option_4: question.options[3],
-      answer: question.answer,
-      rate: rate,
+      question: usersQuestion.question,
+      option_1: usersQuestion.options[0],
+      option_2: usersQuestion.options[1],
+      option_3: usersQuestion.options[2],
+      option_4: usersQuestion.options[3],
+      answer: usersQuestion.answer,
+      rates_multiply_points: score * usersQuestion.rate,
+      points_per_player: score,
+      rate: usersQuestion.rate,
       amount_of_times_rated: 1,
+      difficulty: difficulty,
       created_at: new Date().toLocaleDateString(),
       updated_at: new Date().toLocaleDateString(),
     })
     .then((x) => console.log(x.toJSON()));
+  console.log("finish save New Question ");
 };
 
 //Function for updating an already rated question
-const updateSaveQuestion = (savedQuestion, { question }, rate) => {
+const updateSavedQuestion = (result, usersQuestion, score) => {
+  console.log(result.rates_multiply_points + score * usersQuestion.rate);
+  console.log(result.points_per_player + score);
+
   saved_questions
     .update(
       {
+        rates_multiply_points:
+          result.rates_multiply_points + score * usersQuestion.rate,
+        points_per_player: result.points_per_player + score,
         rate:
-          (savedQuestion.rate + rate) /
-          (savedQuestion.amount_of_times_rated + 1),
-        amount_of_times_rated: savedQuestion.amount_of_times_rated + 1,
+          (result.rates_multiply_points + score * usersQuestion.rate) /
+          (result.points_per_player + score),
+        amount_of_times_rated: result.amount_of_times_rated + 1,
       },
-      { where: { question: question } }
+      { where: { question: usersQuestion.question } }
     )
     .then((x) => console.log(x));
 };
 
 //Function to distinguish between already rated questions to new rated questions
-const handleNewRate = async (rate) => {
+const handleNewRate = async (usersQuestion, difficulty, score) => {
+  console.log("usersQuestion.question");
+  console.log(usersQuestion.question);
+
   const result = await saved_questions.findOne({
-    where: { question: question.question },
+    where: { question: usersQuestion.question },
   });
+
+  console.log("result");
+  console.log(result);
   result
-    ? updateSaveQuestion(result, question, rate)
-    : saveQuestion(rate, question);
+    ? updateSavedQuestion(result, usersQuestion, score)
+    : saveNewQuestion(usersQuestion, difficulty, score);
+  console.log("finish handleNewRate ");
 };
 module.exports = { getQuestion, handleNewRate };
