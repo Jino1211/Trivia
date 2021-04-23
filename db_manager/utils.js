@@ -1,5 +1,5 @@
 const { Op, Sequelize } = require("sequelize");
-const { questions, saved_questions } = require("./models");
+const { questions, saved_questions, users } = require("./models");
 const models = require(`./models`);
 let question;
 const history = [];
@@ -123,15 +123,18 @@ const handleDifficultTypes = async (result, table) => {
   let countries;
   const length = (await table.count({})) - 4;
   const randomRow = Math.floor(Math.random() * length);
-
+  const shuffle = (array) =>
+    array.sort(() => {
+      return 0.5 - Math.random();
+    });
   switch (result.type) {
     case 1:
       countries = await table.findAll({
         order: [[result.column]],
         limit: [randomRow, 4],
       });
+      countries = shuffle(countries);
       question = type1(countries, result);
-      console.log(result.column);
       break;
 
     case 2:
@@ -140,6 +143,7 @@ const handleDifficultTypes = async (result, table) => {
         group: result.column,
         limit: [randomRow, 4],
       });
+      countries = shuffle(countries);
       question = type2(countries, result);
       break;
 
@@ -148,6 +152,7 @@ const handleDifficultTypes = async (result, table) => {
         order: [[result.column]],
         limit: [randomRow, 2],
       });
+      countries = shuffle(countries);
       question = type3(countries, result);
       break;
   }
@@ -238,4 +243,15 @@ const handleNewRate = async (usersQuestion, difficulty, score) => {
     : saveNewQuestion(usersQuestion, difficulty, score);
   console.log("finish handleNewRate ");
 };
-module.exports = { getQuestion, handleNewRate };
+
+//Function to save user and there score in the database
+const saveUser = ({ user, score }) => {
+  users
+    .create({
+      name: user,
+      score: score,
+    })
+    .then((x) => console.log(x));
+};
+
+module.exports = { getQuestion, handleNewRate, saveUser };
