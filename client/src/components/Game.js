@@ -3,11 +3,14 @@ import Question from "./Question";
 import Option from "./Option";
 import Timer from "./Timer";
 
-// import  from "react";
+import { Rating } from "@material-ui/lab";
+
 import axios from "axios";
 
 export default function Game() {
   const [question, setQuestion] = useState("");
+  const [rating, setRating] = useState(5);
+
   useEffect(() => {
     getQuestion();
   }, []);
@@ -16,7 +19,6 @@ export default function Game() {
     setQuestion(dbQuestion.data);
   };
 
-  console.log(question);
   return (
     <div>
       <Timer />
@@ -28,6 +30,16 @@ export default function Game() {
           ))}
         </>
       )}
+      <Rating
+        name="hover-feedback"
+        value={rating}
+        precision={1}
+        onChange={(event, newRating) => {
+          setRating(newRating);
+          console.log(newRating);
+          getQuestion();
+        }}
+      />
       <button onClick={getQuestion}> Next </button>
     </div>
   );

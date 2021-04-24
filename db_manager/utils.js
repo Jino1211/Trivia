@@ -19,21 +19,8 @@ const type1 = (countries, { question, column }) => {
   currentQuestion.question = question;
   countries.map((country) => currentQuestion.options.push(country.Country));
   countries.sort((a, b) => b[column] - a[column]);
-  isMax
-    ? (answer =
-        "In " +
-        countries[0].Country +
-        " the " +
-        noDashColumn +
-        " is: " +
-        countries[0][column])
-    : (answer =
-        "In " +
-        countries[3].Country +
-        " the " +
-        noDashColumn +
-        " is: " +
-        countries[3][column]);
+  // isMax ? (answer = countries[0].Country) : (answer = countries[3].Country);
+  answer = isMax ? countries[0].Country : countries[3].Country;
   currentQuestion.answer = answer;
 
   return currentQuestion;
