@@ -7,6 +7,9 @@ export default function RatingPanel({
   correctAnswer,
   setChosenAnswer,
   getQuestion,
+  lives,
+  setCorrectAnswer,
+  finishGame,
 }) {
   const [rate, setRate] = useState(0);
 
@@ -14,9 +17,12 @@ export default function RatingPanel({
     const rated = await axios.put("/update", { rate: newRate });
     setRate(newRate);
     console.log(rated);
-    await getQuestion();
-
-    setChosenAnswer();
+    if (lives <= 0) {
+      finishGame();
+    } else {
+      await getQuestion();
+      setCorrectAnswer();
+    }
   };
   return (
     <div>

@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Options from "./Options";
 import CreateUser from "./CreateUser";
+import GameSummery from "./GameSummery";
 import axios from "axios";
 import RatingPanel from "./RatingPanel";
 import { LinearProgress } from "@material-ui/core";
+import { Redirect } from "react-router";
 
 export default function Game() {
   const [user, setUser] = useState();
@@ -14,26 +16,50 @@ export default function Game() {
   const [score, setScore] = useState(0);
   const [reduceTimer, setReduceTimer] = useState(20);
   const [timer, setTimer] = useState(reduceTimer);
+  const [progress, setProgress] = useState(100);
+  const [lives, setLives] = useState(3);
+  const [isDone, setIsDone] = useState("/game");
 
   /////
   useEffect(() => {
     const interval = setInterval(() => {
-      timer === 0 ? clearInterval(interval) : setTimer((prev) => prev - 0.5);
+      if (timer === 0) {
+        clearInterval(interval);
+        setLives((prev) => prev - 1);
+        setCorrectAnswer(true);
+      } else {
+        setTimer((prev) => prev - 0.5);
+      }
     }, 500);
     return () => clearInterval(interval);
   }, [timer, reduceTimer]);
 
   /////
+  // useEffect(() => {
+  //   setProgress((prev) => prev - 100 / (reduceTimer * 2));
+  // }, [timer]);
 
-  useEffect(async () => {
+  const setChosen = async (e) => {
     try {
       const { data } = await axios.get("/answer");
+      setChosenAnswer(e.target.innerText);
       setCorrectAnswer(data.answer);
       compareAnswers();
     } catch (err) {
       console.log(err.message);
     }
-  }, [chosenAnswer]);
+  };
+  // useEffect(async () => {
+  //   console.log("fish");
+  //   try {
+  //     const { data } = await axios.get("/answer");
+  //     setCorrectAnswer(data.answer);
+
+  //     compareAnswers();
+  //   } catch (err) {
+  //     console.log(err.message);
+  //   }
+  // }, [chosenAnswer]);
 
   useEffect(() => {
     getQuestion();
@@ -44,9 +70,20 @@ export default function Game() {
     if (chosenAnswer === `${correctAnswer}`) {
       const currentScore = (1 - (reduceTimer - timer) / reduceTimer) * 70 + 30;
       setScore((score) => score + currentScore);
+    } else {
+      setLives((prev) => prev - 1);
+      console.log(lives);
     }
   };
-
+  const finishGame = async () => {
+    try {
+      const done = await axios.post("/finish", { score: score });
+      setIsDone("/gamesummery");
+      console.log(done);
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
   const getQuestion = async () => {
     try {
       const { data } = await axios.get("/question");
@@ -62,27 +99,27 @@ export default function Game() {
 
   return (
     <div>
-      {!user ? (
+      {lives === 0 ? (
+        <GameSummery user={user} score={score} />
+      ) : !user ? (
         <CreateUser setUser={setUser} setTimer={setTimer} />
-      ) : chosenAnswer ? (
+      ) : correctAnswer ? (
         <RatingPanel
           isRight={isRight}
           correctAnswer={correctAnswer}
-          setChosenAnswer={setChosenAnswer}
+          setCorrectAnswer={setCorrectAnswer}
           getQuestion={getQuestion}
-          setReduceTimer={setReduceTimer}
+          lives={lives}
+          finishGame={finishGame}
         />
       ) : (
         <div>
+          <div>lives left : {lives}</div>
           <div>{timer} </div>
-          <LinearProgress variant="determinate" value={timer} />
+          <LinearProgress variant="determinate" value={progress} />
           <div className="question">{question.question}</div>
-          <Options
-            options={question.options}
-            setChosenAnswer={setChosenAnswer}
-          />
-          {/* <button className="submit-answer">Submit Answer!</button> */}
-          <div className="total-score">{score}</div>
+          <Options options={question.options} setChosenAnswer={setChosen} />
+          <div className="total-score">{Math.floor(score)}</div>
         </div>
       )}
     </div>
