@@ -148,7 +148,7 @@ const handleDifficultTypes = async (result, table) => {
 
 // main query for navigating between questions types.
 const getQuestion = async (third, difficulty) => {
-  if (third) {
+  if (third && questionsDuplicateByWeight.length !== 0) {
     question = typeSaved(getFromWeightedArr());
   } else {
     const result = await questions.findOne({

@@ -70,6 +70,7 @@ app.put("/update", (req, res) => {
 
 //Entry point for saving the users data when he finished a game
 app.post("/finish", (req, res) => {
+  historyOfPlayer.score = req.body.score;
   const promises = [];
   promises.push(saveUser(historyOfPlayer));
   historyOfPlayer.playerQuestionsAndRates.forEach((question) => {
