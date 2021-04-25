@@ -64,7 +64,6 @@ app.put("/update", (req, res) => {
   const { rate } = req.body;
   currentQuestion.rate = rate;
   historyOfPlayer.playerQuestionsAndRates.push(currentQuestion);
-  historyOfPlayer.score += 100;
   res.status(201).end();
 });
 
@@ -86,9 +85,11 @@ app.post("/finish", (req, res) => {
   });
   Promise.all(promises)
     .then(() =>
-      res
-        .status(200)
-        .json({ message: "The data of the user was successfully saved" })
+      res.status(200).json({
+        user: historyOfPlayer.user,
+        score: historyOfPlayer.score,
+        difficulty: historyOfPlayer.difficulty,
+      })
     )
     .catch((err) =>
       res

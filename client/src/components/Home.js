@@ -2,6 +2,7 @@ import React from "react";
 import Game from "./Game";
 import ScoreBoard from "./ScoreBoard";
 import CreateUser from "./CreateUser";
+import PlayersSummery from "./PlayersSummery";
 import { BrowserRouter, NavLink, Route, Switch } from "react-router-dom";
 
 export default function Home() {
@@ -22,6 +23,7 @@ export default function Home() {
         {/* <Game /> */}
         <Switch>
           <Route exact path="/createuser" component={CreateUser} />
+          <Route exact path="/playerssummery" component={PlayersSummery} />
           <Route exact path="/game" component={Game} />
           <Route exact path="/scoreboard" component={ScoreBoard} />
         </Switch>
