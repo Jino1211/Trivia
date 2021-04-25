@@ -1,58 +1,40 @@
-import axios from "axios";
 import React, { useRef, useState } from "react";
-import { Link, Redirect } from "react-router-dom";
-import Button from "@material-ui/core/Button";
+import axios from "axios";
 
-export default function CreateUser() {
-  const userRef = useRef();
-  const [pageToNavigate, setPageToNavigate] = useState("/createuser");
-  const [difficulty, setDifficulty] = useState();
+export default function CreateUser({ setUser }) {
+  const username = useRef();
+  const [difficulty, setDifficulty] = useState("");
 
   const createUser = () => {
-    if (userRef.current.value && difficulty) {
-      const userDetails = {
-        user: userRef.current.value,
+    if (username.current.value !== "" && difficulty !== "") {
+      const user = {
+        username: username.current.value,
         difficulty: difficulty,
       };
-      axios
-        .post("./createuser", userDetails)
-        .then(() => setPageToNavigate("/game"))
-        .catch((e) => console.log(e.message));
-    } else {
-      console.log("FuckALL");
+      setUser(user);
+      axios.post("/createuser", user).then((res) => console.log(res));
     }
   };
-
   return (
     <div>
-      <div>
-        <input ref={userRef} />
+      <input ref={username} />
+      <div className="diff-buttons">
+        <button
+          className="difficulty-button"
+          onClick={() => setDifficulty("easy")}
+        >
+          Easy
+        </button>
+        <button
+          className="difficulty-button"
+          onClick={() => setDifficulty("hard")}
+        >
+          Hard
+        </button>
       </div>
-      <Button
-        variant="contained"
-        className="easy-button button"
-        onClick={() => setDifficulty("Easy")}
-      >
-        Easy
-      </Button>
-      <Button
-        variant="contained"
-        className="hard-button button"
-        onClick={() => setDifficulty("Hard")}
-      >
-        Hard
-      </Button>
-      <Button
-        variant="contained"
-        className="create-button button"
-        onClick={createUser}
-      >
-        {" "}
-        Create-User
-      </Button>
-      <Redirect push to={pageToNavigate} />
+      <button className="create-user-btn" onClick={createUser}>
+        Create User!
+      </button>
     </div>
   );
 }
-
-//<Button variant="contained">Default</Button>
