@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import axios from "axios";
 
-export default function CreateUser({ setUser }) {
+export default function CreateUser({ setUser, setTimer }) {
   const username = useRef();
   const [difficulty, setDifficulty] = useState("");
 
@@ -13,6 +13,7 @@ export default function CreateUser({ setUser }) {
       };
       setUser(user);
       axios.post("/createuser", user).then((res) => console.log(res));
+      setTimer(20);
     }
   };
   return (
