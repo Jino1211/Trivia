@@ -97,6 +97,7 @@ export default function Game() {
 
   return (
     <div>
+      <button onClick={() => setUser()}>New Game!</button>
       {lives === 0 ? (
         <GameSummery user={user} score={score} />
       ) : !user ? (
