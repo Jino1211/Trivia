@@ -28,7 +28,7 @@ export default function RatingPanel({
   return (
     <div>
       <div>{isRight ? "you were right!" : "fuckall!"}</div>
-      <div>{correctAnswer}</div>
+      <div>The correct anser is: {correctAnswer}</div>
       <Rating
         name="hover-feedback"
         value={rate}
@@ -37,9 +37,9 @@ export default function RatingPanel({
           handleRate(newRate);
         }}
       />
-      <button className="skip-btn" onClick={() => handleRate()}>
-        skip
-      </button>
+      <div className="skip-btn">
+        <button onClick={() => handleRate()}>skip!</button>
+      </div>
     </div>
   );
 }

@@ -117,7 +117,7 @@ export default function Game() {
           <LinearProgress variant="determinate" value={progress} />
           <div className="question">{question.question}</div>
           <Options options={question.options} setChosenAnswer={setChosen} />
-          <div className="total-score">{Math.floor(score)}</div>
+          <div className="total-score">Total score:{Math.floor(score)}</div>
         </div>
       )}
     </div>
