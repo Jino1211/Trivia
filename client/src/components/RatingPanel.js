@@ -27,8 +27,8 @@ export default function RatingPanel({
   };
   return (
     <div>
-      <div>{isRight ? "you were right!" : "fuckall!"}</div>
-      <div>The correct anser is: {correctAnswer}</div>
+      <div>{isRight ? "You were right!" : "You are so wrong!"}</div>
+      <div>The correct answer is: {correctAnswer}</div>
       <Rating
         name="hover-feedback"
         value={rate}
