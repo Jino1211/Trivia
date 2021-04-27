@@ -5,6 +5,7 @@ const {
   handleNewRate,
   saveUser,
   generateWeightedSavedQuestionArr,
+  getScoreBoard,
 } = require("./utils");
 let currentQuestion;
 let numOfQuestion = 0;
@@ -96,6 +97,12 @@ app.post("/finish", (req, res) => {
         .status(500)
         .json({ message: "Error! we have a problem with our server" })
     );
+});
+
+app.get("/scoreboard", async (req, res) => {
+  const scoreBoard = await getScoreBoard();
+
+  res.status(200).json(scoreBoard);
 });
 
 app.listen(8080, () => console.log("app listen to port 8080"));

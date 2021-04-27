@@ -8,7 +8,7 @@ export default function CreateUser({ setUser, setTimer }) {
   const createUser = () => {
     if (username.current.value !== "" && difficulty !== "") {
       const user = {
-        username: username.current.value,
+        user: username.current.value,
         difficulty: difficulty,
       };
       setUser(user);

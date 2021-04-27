@@ -1,12 +1,27 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import UserPanel from "./UserPanel";
 
-export default function Board({ users }) {
+export default function Board() {
+  const [scoreBoard, setScoreBoard] = useState();
+  useEffect(async () => {
+    const updatedScoreBoard = await axios.get("/scoreboard");
+    setScoreBoard(updatedScoreBoard.data);
+  }, []);
+
   return (
-    <div>
-      {users.map((user, i) => (
+    <table>
+      <thead>
+        <tr>
+          <th>User</th>
+          <th>Score</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+
+      {scoreBoard?.map((user, i) => (
         <UserPanel key={`user-${i}`} user={user} />
       ))}
-    </div>
+    </table>
   );
 }

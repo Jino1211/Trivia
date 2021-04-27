@@ -255,9 +255,20 @@ const getFromWeightedArr = () => {
   return questionsDuplicateByWeight[randomQuestion];
 };
 
+const getScoreBoard = async () => {
+  const scoreBoard = await users.findAll({
+    attributes: ["name", "score", "created_at"],
+    order: [["score", "DESC"]],
+  });
+
+  return scoreBoard;
+};
+
+getScoreBoard();
 module.exports = {
   getQuestion,
   handleNewRate,
   saveUser,
   generateWeightedSavedQuestionArr,
+  getScoreBoard,
 };
