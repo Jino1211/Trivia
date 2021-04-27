@@ -40,12 +40,16 @@ const type2 = (countries, { question, column }) => {
 
 //function for handling the type 3 questions.
 const type3 = (countries, { question, column }) => {
-  const currentQuestion = { question: "", options: [true, false], answer: "" };
+  const currentQuestion = {
+    question: "",
+    options: ["true", "false"],
+    answer: "",
+  };
   currentQuestion.question =
     question
       .replace("variable-x", countries[0].Country)
       .replace("variable-y", countries[1].Country) + "?";
-  const answer = countries[0][column] > countries[1][column] ? true : false;
+  const answer = countries[0][column] > countries[1][column] ? "true" : "false";
   currentQuestion.answer = answer;
 
   return currentQuestion;
@@ -59,8 +63,8 @@ const typeSaved = (saved) => {
   currentQuestion.options = saved.option_3
     ? [saved.option_1, saved.option_2, saved.option_3, saved.option_4]
     : saved.option_1 === "0"
-    ? [false, true]
-    : [true, false];
+    ? ["false", "true"]
+    : ["true", "false"];
   currentQuestion.answer = saved.answer;
   return currentQuestion;
 };

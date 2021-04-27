@@ -42,32 +42,30 @@ export default function Game() {
   const setChosen = async (e) => {
     try {
       const { data } = await axios.get("/answer");
-      setChosenAnswer(e.target.innerText);
-      setCorrectAnswer(data.answer);
-      compareAnswers();
+      const chosen = e.target.innerText;
+      const correct = data.answer;
+      setChosenAnswer(chosen);
+      setCorrectAnswer(correct);
+      compareAnswers(chosen, correct);
+      setTimer("");
     } catch (err) {
       console.log(err.message);
     }
   };
-  // useEffect(async () => {
-  //   console.log("fish");
-  //   try {
-  //     const { data } = await axios.get("/answer");
-  //     setCorrectAnswer(data.answer);
-
-  //     compareAnswers();
-  //   } catch (err) {
-  //     console.log(err.message);
-  //   }
-  // }, [chosenAnswer]);
 
   useEffect(() => {
     getQuestion();
   }, [user]);
 
-  const compareAnswers = () => {
-    setIsRight(chosenAnswer === `${correctAnswer}`);
-    if (chosenAnswer === `${correctAnswer}`) {
+  const compareAnswers = (chosen, correct) => {
+    setIsRight(chosen === `${correct}`);
+    console.log(chosen);
+    console.log(typeof chosen);
+
+    console.log(correct);
+    console.log(chosen === `${correct}`);
+
+    if (chosen === `${correct}`) {
       const currentScore = (1 - (reduceTimer - timer) / reduceTimer) * 70 + 30;
       setScore((score) => score + currentScore);
     } else {

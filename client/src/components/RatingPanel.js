@@ -14,9 +14,10 @@ export default function RatingPanel({
   const [rate, setRate] = useState(0);
 
   const handleRate = async (newRate) => {
-    const rated = await axios.put("/update", { rate: newRate });
-    setRate(newRate);
-    console.log(rated);
+    if (newRate) {
+      await axios.put("/update", { rate: newRate });
+      setRate(newRate);
+    }
     if (lives <= 0) {
       finishGame();
     } else {
@@ -36,6 +37,9 @@ export default function RatingPanel({
           handleRate(newRate);
         }}
       />
+      <button className="skip-btn" onClick={() => handleRate()}>
+        skip
+      </button>
     </div>
   );
 }
