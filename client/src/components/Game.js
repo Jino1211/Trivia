@@ -1,11 +1,20 @@
 import React, { useState, useEffect } from "react";
-import Options from "./Options";
+// import Options from "./Options";
+import Question from "./Question";
 import CreateUser from "./CreateUser";
 import GameSummery from "./GameSummery";
+import Board from "./Board";
 import axios from "axios";
 import RatingPanel from "./RatingPanel";
-import { LinearProgress } from "@material-ui/core";
-import { Redirect } from "react-router";
+// import { LinearProgress, Link } from "@material-ui/core";
+
+import {
+  BrowserRouter,
+  NavLink,
+  Redirect,
+  Route,
+  Switch,
+} from "react-router-dom";
 
 export default function Game() {
   const [user, setUser] = useState();
@@ -18,15 +27,20 @@ export default function Game() {
   const [timer, setTimer] = useState(reduceTimer);
   const [progress, setProgress] = useState(100);
   const [lives, setLives] = useState(3);
-  const [isDone, setIsDone] = useState("/game");
+  const [isAlive, setIsAlive] = useState(true);
 
   /////
   useEffect(() => {
-    const interval = setInterval(() => {
+    setProgress(100 * (100 / reduceTimer));
+  }, [timer]);
+
+  useEffect(() => {
+    const interval = setInterval(async () => {
       if (timer === 0) {
         clearInterval(interval);
-        setLives((prev) => prev - 1);
-        setCorrectAnswer(true);
+        const correct = await getCorrectAnswer();
+        setCorrectAnswer(correct);
+        setIsRight(false);
       } else {
         setTimer((prev) => prev - 0.5);
       }
@@ -34,16 +48,30 @@ export default function Game() {
     return () => clearInterval(interval);
   }, [timer, reduceTimer]);
 
+  useEffect(() => {
+    if (lives === 0) {
+      finishGame();
+      setIsAlive(false);
+    }
+  }, [lives]);
+
   /////
   // useEffect(() => {
   //   setProgress((prev) => prev - 100 / (reduceTimer * 2));
   // }, [timer]);
 
+  const getCorrectAnswer = async () => {
+    const { data } = await axios.get("/answer");
+    const correct = data.answer;
+    return correct;
+  };
+
   const setChosen = async (e) => {
     try {
-      const { data } = await axios.get("/answer");
+      const correct = await getCorrectAnswer();
+      // const { data } = await axios.get("/answer");
       const chosen = e.target.innerText;
-      const correct = data.answer;
+      // const correct = data.answer;
       setChosenAnswer(chosen);
       setCorrectAnswer(correct);
       compareAnswers(chosen, correct);
@@ -53,8 +81,8 @@ export default function Game() {
     }
   };
 
-  useEffect(() => {
-    getQuestion();
+  useEffect(async () => {
+    await getQuestion();
   }, [user]);
 
   const compareAnswers = (chosen, correct) => {
@@ -69,19 +97,21 @@ export default function Game() {
       const currentScore = (1 - (reduceTimer - timer) / reduceTimer) * 70 + 30;
       setScore((score) => score + currentScore);
     } else {
-      setLives((prev) => prev - 1);
+      // setLives((prev) => prev - 1);
       console.log(lives);
     }
   };
+
   const finishGame = async () => {
     try {
       const done = await axios.post("/finish", { score: score });
-      setIsDone("/gamesummery");
+      // setIsDone("/gamesummery");
       console.log(done);
     } catch (err) {
       console.log(err.message);
     }
   };
+
   const getQuestion = async () => {
     try {
       const { data } = await axios.get("/question");
@@ -95,10 +125,32 @@ export default function Game() {
     }
   };
 
+  const resetGame = () => {
+    setUser();
+    setIsAlive(true);
+    setTimer(undefined);
+    setReduceTimer(20);
+    setLives(3);
+    setCorrectAnswer();
+  };
+
   return (
     <div>
-      <button onClick={() => setUser()}>New Game!</button>
-      {lives === 0 ? (
+      <nav>
+        <BrowserRouter>
+          <NavLink exact to="/" onClick={resetGame}>
+            New Game
+          </NavLink>{" "}
+          <NavLink exact to="/board">
+            Winners and losers Board
+          </NavLink>
+          <Switch>
+            <Route exact path="/board" component={Board} />
+            <Route exact path="/gamesummery" component={GameSummery} />
+          </Switch>
+        </BrowserRouter>
+      </nav>
+      {!isAlive ? (
         <GameSummery user={user} score={score} />
       ) : !user ? (
         <CreateUser setUser={setUser} setTimer={setTimer} />
@@ -110,16 +162,25 @@ export default function Game() {
           getQuestion={getQuestion}
           lives={lives}
           finishGame={finishGame}
+          setLives={setLives}
         />
       ) : (
-        <div>
-          <div>lives left : {lives}</div>
-          <div>{timer} </div>
-          <LinearProgress variant="determinate" value={progress} />
-          <div className="question">{question.question}</div>
-          <Options options={question.options} setChosenAnswer={setChosen} />
-          <div className="total-score">Total score:{Math.floor(score)}</div>
-        </div>
+        // <div>
+        //   <div>lives left : {lives}</div>
+        //   <div>{timer} </div>
+        //   <LinearProgress variant="determinate" value={progress} />
+        //   <div className="question">{question.question}</div>
+        //   <Options options={question.options} setChosenAnswer={setChosen} />
+        //   <div className="total-score">Total score:{Math.floor(score)}</div>
+        // </div>
+        <Question
+          lives={lives}
+          timer={timer}
+          progress={progress}
+          question={question}
+          setChosen={setChosen}
+          score={score}
+        />
       )}
     </div>
   );
