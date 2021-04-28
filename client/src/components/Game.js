@@ -64,8 +64,9 @@ export default function Game() {
   }, [lives]);
 
   useEffect(async () => {
-    if (!user) {
+    if (user) {
       console.log("use Effect user");
+      console.log(user);
       const { data } = await axios.get("api/question");
       setQuestion(data);
     }
@@ -139,12 +140,13 @@ export default function Game() {
     setQuestion();
     setLives(3);
     setCorrectAnswer();
-    setUser();
+    setActive(false);
   };
   const logOut = async () => {
     console.log("kil");
     await axios.post("/users/logout");
     resetGame();
+    setUser();
     console.log("bil");
   };
 

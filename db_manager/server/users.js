@@ -12,7 +12,7 @@ const users = Router();
 
 //Middleware for checking if the token gotten from the req is valid
 const validToken = async (req, res, next) => {
-  const accessToken = await req.cookie["accessToken"];
+  const accessToken = await req.cookies["accessToken"];
   if (!accessToken) {
     return res.status(401).json({ message: "Access token is required" });
   }
@@ -23,7 +23,6 @@ const validToken = async (req, res, next) => {
     req.user = decoded;
     next();
   });
-  console.log(accessToken, refreshToken);
 };
 
 //Entry point for create new user
@@ -66,29 +65,31 @@ users.post("/register", async (req, res) => {
 users.post("/login", async (req, res) => {
   const { difficulty } = req.body;
   const { email, password } = req.body;
-  generateWeightedSavedQuestionArr();
   console.log("after generate");
   try {
     const user = await checkUserExist(email);
     console.log(user);
+    generateWeightedSavedQuestionArr();
 
     if (!user) {
       res.status(404).json({ message: "User not found" });
       return;
     }
-
+    console.log("78");
     const isPasswordCorrect = await compare(password, user.password);
-
+    console.log("80");
     if (!isPasswordCorrect) {
       console.log("if !password");
       return res
         .status(403)
         .json({ message: "Email or password is incorrect" });
     }
+
     historyOfPlayer.user = user.user_name;
     historyOfPlayer.difficulty = difficulty;
     historyOfPlayer.score = 0;
     historyOfPlayer.playerQuestionsAndRates = [];
+
     const dataOfUser = { email: user.email, userName: user.userName };
 
     const accessToken = sign(dataOfUser, process.env.SECRET_KEY, {
@@ -111,8 +112,8 @@ users.post("/login", async (req, res) => {
 //Entry point for clearing cookies(refresh token & access token)
 users.post("/logout", validToken, (req, res) => {
   res
-    // .clearCookie(accessToken)
-    .clearCookie(refreshToken)
+    .clearCookie("accessToken")
+    .clearCookie("refreshToken")
     .status(200)
     .json({ message: "token cleared" });
 });
