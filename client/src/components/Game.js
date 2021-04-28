@@ -30,23 +30,29 @@ export default function Game() {
   const [isAlive, setIsAlive] = useState(true);
 
   /////
+
   useEffect(() => {
-    setProgress(100 * (100 / reduceTimer));
+    setProgress(100 / (reduceTimer / timer));
   }, [timer]);
 
   useEffect(() => {
-    const interval = setInterval(async () => {
-      if (timer === 0) {
-        clearInterval(interval);
-        const correct = await getCorrectAnswer();
-        setCorrectAnswer(correct);
-        setIsRight(false);
-      } else {
-        setTimer((prev) => prev - 0.5);
-      }
-    }, 500);
-    return () => clearInterval(interval);
-  }, [timer, reduceTimer]);
+    if (user) {
+      const interval = setInterval(async () => {
+        if (timer === 0) {
+          clearInterval(interval);
+
+          if (question) {
+            const correct = await getCorrectAnswer();
+            setCorrectAnswer(correct);
+          }
+          setIsRight(false);
+        } else {
+          setTimer((prev) => prev - 0.5);
+        }
+      }, 500);
+      return () => clearInterval(interval);
+    }
+  }, [user, timer, reduceTimer]);
 
   useEffect(() => {
     if (lives === 0) {
@@ -55,6 +61,10 @@ export default function Game() {
     }
   }, [lives]);
 
+  useEffect(async () => {
+    const { data } = await axios.get("/question");
+    setQuestion(data);
+  }, [user]);
   /////
   // useEffect(() => {
   //   setProgress((prev) => prev - 100 / (reduceTimer * 2));
@@ -69,21 +79,19 @@ export default function Game() {
   const setChosen = async (e) => {
     try {
       const correct = await getCorrectAnswer();
-      // const { data } = await axios.get("/answer");
       const chosen = e.target.innerText;
-      // const correct = data.answer;
+      compareAnswers(chosen, correct);
       setChosenAnswer(chosen);
       setCorrectAnswer(correct);
-      compareAnswers(chosen, correct);
-      setTimer("");
+      setTimer(undefined);
     } catch (err) {
       console.log(err.message);
     }
+    console.log("timer");
+    console.log(timer);
+    console.log("reduceTimer");
+    console.log(reduceTimer);
   };
-
-  useEffect(async () => {
-    await getQuestion();
-  }, [user]);
 
   const compareAnswers = (chosen, correct) => {
     setIsRight(chosen === `${correct}`);
@@ -97,7 +105,6 @@ export default function Game() {
       const currentScore = (1 - (reduceTimer - timer) / reduceTimer) * 70 + 30;
       setScore((score) => score + currentScore);
     } else {
-      // setLives((prev) => prev - 1);
       console.log(lives);
     }
   };
@@ -105,7 +112,6 @@ export default function Game() {
   const finishGame = async () => {
     try {
       const done = await axios.post("/finish", { score: score });
-      // setIsDone("/gamesummery");
       console.log(done);
     } catch (err) {
       console.log(err.message);
@@ -116,10 +122,10 @@ export default function Game() {
     try {
       const { data } = await axios.get("/question");
       setQuestion(data);
-      reduceTimer > 5
+      reduceTimer > 5.5
         ? setReduceTimer((prev) => prev - 0.5)
-        : setReduceTimer(5);
-      setTimer(reduceTimer);
+        : setReduceTimer(5.5);
+      setTimer(reduceTimer - 0.5);
     } catch (err) {
       console.log(err.message);
     }
@@ -165,14 +171,6 @@ export default function Game() {
           setLives={setLives}
         />
       ) : (
-        // <div>
-        //   <div>lives left : {lives}</div>
-        //   <div>{timer} </div>
-        //   <LinearProgress variant="determinate" value={progress} />
-        //   <div className="question">{question.question}</div>
-        //   <Options options={question.options} setChosenAnswer={setChosen} />
-        //   <div className="total-score">Total score:{Math.floor(score)}</div>
-        // </div>
         <Question
           lives={lives}
           timer={timer}
