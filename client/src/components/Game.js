@@ -62,16 +62,15 @@ export default function Game() {
   }, [lives]);
 
   useEffect(async () => {
-    const { data } = await axios.get("/question");
-    setQuestion(data);
+    if (!user) {
+      console.log("use Effect user");
+      const { data } = await axios.get("api/question");
+      setQuestion(data);
+    }
   }, [user]);
-  /////
-  // useEffect(() => {
-  //   setProgress((prev) => prev - 100 / (reduceTimer * 2));
-  // }, [timer]);
 
   const getCorrectAnswer = async () => {
-    const { data } = await axios.get("/answer");
+    const { data } = await axios.get("api/answer");
     const correct = data.answer;
     return correct;
   };
@@ -111,7 +110,7 @@ export default function Game() {
 
   const finishGame = async () => {
     try {
-      const done = await axios.post("/finish", { score: score });
+      const done = await axios.post("api/finish", { score: score });
       console.log(done);
     } catch (err) {
       console.log(err.message);
@@ -120,7 +119,7 @@ export default function Game() {
 
   const getQuestion = async () => {
     try {
-      const { data } = await axios.get("/question");
+      const { data } = await axios.get("api/question");
       setQuestion(data);
       reduceTimer > 5.5
         ? setReduceTimer((prev) => prev - 0.5)
@@ -132,12 +131,13 @@ export default function Game() {
   };
 
   const resetGame = () => {
-    setUser();
     setIsAlive(true);
     setTimer(undefined);
     setReduceTimer(20);
+    setQuestion();
     setLives(3);
     setCorrectAnswer();
+    setUser();
   };
 
   return (

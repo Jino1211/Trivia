@@ -16,7 +16,7 @@ export default function RatingPanel({
 
   const handleRate = async (newRate) => {
     if (newRate) {
-      await axios.put("/update", { rate: newRate });
+      await axios.put("api/update", { rate: newRate });
       setRate(newRate);
     }
     if (!isRight) {

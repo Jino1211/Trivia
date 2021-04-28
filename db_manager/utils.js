@@ -1,5 +1,10 @@
-const { Op, Sequelize } = require("sequelize");
-const { questions, saved_questions, users } = require("./models");
+const { Op, Sequelize, where } = require("sequelize");
+const {
+  questions,
+  saved_questions,
+  users,
+  registeredUsers,
+} = require("./models");
 const models = require(`./models`);
 let question;
 const history = [];
@@ -264,11 +269,28 @@ const getScoreBoard = async () => {
   return scoreBoard;
 };
 
-getScoreBoard();
+const checkUserExist = async (email) => {
+  const isExist = await registeredUsers.findOne({ where: { email: email } });
+  return isExist;
+};
+
+const saveNewRegister = async (email, userName, password) => {
+  const x = await registeredUsers.create({
+    email,
+    user_name: userName,
+    password,
+    created_at: new Date(),
+    updated_at: new Date(),
+  });
+  console.log(x.toJSON());
+};
+
 module.exports = {
   getQuestion,
   handleNewRate,
   saveUser,
   generateWeightedSavedQuestionArr,
   getScoreBoard,
+  checkUserExist,
+  saveNewRegister,
 };

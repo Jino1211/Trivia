@@ -12,7 +12,7 @@ export default function CreateUser({ setUser, setTimer }) {
         difficulty: difficulty,
       };
       setUser(user);
-      axios.post("/createuser", user).then((res) => console.log(res));
+      axios.post("api/createuser", user).then((res) => console.log(res));
       setTimer(20);
     }
   };
