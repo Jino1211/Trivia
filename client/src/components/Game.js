@@ -15,6 +15,7 @@ import {
   Route,
   Switch,
 } from "react-router-dom";
+import Register from "./Register";
 
 export default function Game() {
   const [user, setUser] = useState();
@@ -141,9 +142,9 @@ export default function Game() {
   };
 
   return (
-    <div>
-      <nav>
-        <BrowserRouter>
+    <BrowserRouter>
+      <div>
+        <nav>
           <NavLink exact to="/" onClick={resetGame}>
             New Game
           </NavLink>{" "}
@@ -153,33 +154,34 @@ export default function Game() {
           <Switch>
             <Route exact path="/board" component={Board} />
             <Route exact path="/gamesummery" component={GameSummery} />
+            <Route exact path="/register" component={Register} />
           </Switch>
-        </BrowserRouter>
-      </nav>
-      {!isAlive ? (
-        <GameSummery user={user} score={score} />
-      ) : !user ? (
-        <CreateUser setUser={setUser} setTimer={setTimer} />
-      ) : correctAnswer ? (
-        <RatingPanel
-          isRight={isRight}
-          correctAnswer={correctAnswer}
-          setCorrectAnswer={setCorrectAnswer}
-          getQuestion={getQuestion}
-          lives={lives}
-          finishGame={finishGame}
-          setLives={setLives}
-        />
-      ) : (
-        <Question
-          lives={lives}
-          timer={timer}
-          progress={progress}
-          question={question}
-          setChosen={setChosen}
-          score={score}
-        />
-      )}
-    </div>
+        </nav>
+        {!isAlive ? (
+          <GameSummery user={user} score={score} />
+        ) : !user ? (
+          <CreateUser setUser={setUser} setTimer={setTimer} />
+        ) : correctAnswer ? (
+          <RatingPanel
+            isRight={isRight}
+            correctAnswer={correctAnswer}
+            setCorrectAnswer={setCorrectAnswer}
+            getQuestion={getQuestion}
+            lives={lives}
+            finishGame={finishGame}
+            setLives={setLives}
+          />
+        ) : (
+          <Question
+            lives={lives}
+            timer={timer}
+            progress={progress}
+            question={question}
+            setChosen={setChosen}
+            score={score}
+          />
+        )}
+      </div>
+    </BrowserRouter>
   );
 }

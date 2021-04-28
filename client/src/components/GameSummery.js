@@ -3,7 +3,7 @@ import React from "react";
 export default function GameSummery({ user, score }) {
   return (
     <div>
-      <h1>{user.user}</h1>
+      <h1>{user.name}</h1>
       <div>
         <h3>{user.difficulty}</h3>
         <h3>{score}</h3>

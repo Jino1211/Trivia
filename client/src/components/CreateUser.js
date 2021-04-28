@@ -1,41 +1,72 @@
 import React, { useRef, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
+import Register from "./Register";
 
 export default function CreateUser({ setUser, setTimer }) {
-  const username = useRef();
+  const [haveAccount, setHaveAccount] = useState(true);
+  const email = useRef();
+  const password = useRef();
   const [difficulty, setDifficulty] = useState("");
 
-  const createUser = () => {
-    if (username.current.value !== "" && difficulty !== "") {
+  const login = () => {
+    if (
+      email.current.value !== "" &&
+      password.current.value !== "" &&
+      difficulty !== ""
+    ) {
       const user = {
-        user: username.current.value,
+        email: email.current.value,
+        password: password.current.value,
         difficulty: difficulty,
       };
-      setUser(user);
-      axios.post("api/createuser", user).then((res) => console.log(res));
-      setTimer(20);
+
+      axios
+        .post("/users/login", user)
+        .then(({ data }) => {
+          user.name = data.name;
+          setUser(user);
+          setTimer(20);
+        })
+        .catch((err) => console.log(err));
     }
   };
   return (
     <div>
-      <input ref={username} />
-      <div className="diff-buttons">
-        <button
-          className="difficulty-button"
-          onClick={() => setDifficulty("easy")}
-        >
-          Easy
-        </button>
-        <button
-          className="difficulty-button"
-          onClick={() => setDifficulty("hard")}
-        >
-          Hard
-        </button>
-      </div>
-      <button className="create-user-btn" onClick={createUser}>
-        Create User!
-      </button>
+      {haveAccount ? (
+        <div>
+          {" "}
+          <input ref={email} />
+          <input ref={password} />
+          <div className="diff-buttons">
+            <button
+              className="difficulty-button"
+              onClick={() => setDifficulty("easy")}
+            >
+              Easy
+            </button>
+            <button
+              className="difficulty-button"
+              onClick={() => setDifficulty("hard")}
+            >
+              Hard
+            </button>
+          </div>
+          <button className="login-btn" onClick={login}>
+            Log in!
+          </button>
+          <button
+            className="create-user-btn"
+            onClick={() => {
+              setHaveAccount(false);
+            }}
+          >
+            Create user
+          </button>{" "}
+        </div>
+      ) : (
+        <Register setHaveAccount={setHaveAccount} />
+      )}
     </div>
   );
 }
