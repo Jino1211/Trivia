@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Question from "./Question";
 import CreateUser from "./CreateUser";
 import GameSummery from "./GameSummery";
+import Home from "./Home";
 import Board from "./Board";
 import axios from "axios";
 import RatingPanel from "./RatingPanel";
@@ -29,7 +30,7 @@ export default function Game() {
   const [progress, setProgress] = useState(100);
   const [lives, setLives] = useState(3);
   const [isAlive, setIsAlive] = useState(true);
-
+  const [active, setActive] = useState(false);
   /////
 
   useEffect(() => {
@@ -140,6 +141,12 @@ export default function Game() {
     setCorrectAnswer();
     setUser();
   };
+  const logOut = async () => {
+    console.log("kil");
+    await axios.post("/users/logout");
+    resetGame();
+    console.log("bil");
+  };
 
   return (
     <BrowserRouter>
@@ -157,6 +164,7 @@ export default function Game() {
             <Route exact path="/register" component={Register} />
           </Switch>
         </nav>
+        {user && <button onClick={logOut}>log out</button>}
         {!isAlive ? (
           <GameSummery user={user} score={score} />
         ) : !user ? (
@@ -171,6 +179,8 @@ export default function Game() {
             finishGame={finishGame}
             setLives={setLives}
           />
+        ) : !active ? (
+          <Home logOut={logOut} setActive={setActive} />
         ) : (
           <Question
             lives={lives}

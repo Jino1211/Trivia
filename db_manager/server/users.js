@@ -111,7 +111,7 @@ users.post("/login", async (req, res) => {
 //Entry point for clearing cookies(refresh token & access token)
 users.post("/logout", validToken, (req, res) => {
   res
-    .clearCookie(accessToken)
+    // .clearCookie(accessToken)
     .clearCookie(refreshToken)
     .status(200)
     .json({ message: "token cleared" });
