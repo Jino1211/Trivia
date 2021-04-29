@@ -301,6 +301,7 @@ const validToken = async (req, res, next) => {
       if (err.message === "jwt expired") {
         verify(refreshToken, process.env.REFRESH_KEY, (err, decoded) => {
           if (err) {
+            console.log("fish");
             res.status(403).json({ message: err.message });
           } else {
             const { email, userName } = decoded;

@@ -31,7 +31,7 @@ users.post("/register", async (req, res) => {
 
 //Entry point to verify users when there try to login
 users.post("/login", async (req, res) => {
-  const { difficulty } = req.body;
+  // const { difficulty } = req.body;
   const { email, password } = req.body;
   try {
     const user = await checkUserExist(email);
@@ -49,7 +49,7 @@ users.post("/login", async (req, res) => {
     }
 
     historyOfPlayer.user = user.user_name;
-    historyOfPlayer.difficulty = difficulty;
+    // historyOfPlayer.difficulty = difficulty;
     historyOfPlayer.score = 0;
     historyOfPlayer.playerQuestionsAndRates = [];
 

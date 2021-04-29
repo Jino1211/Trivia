@@ -31,6 +31,7 @@ export default function Game() {
   const [lives, setLives] = useState(3);
   const [isAlive, setIsAlive] = useState(true);
   const [active, setActive] = useState(false);
+  const [difficulty, setDifficulty] = useState();
   /////
 
   useEffect(() => {
@@ -70,7 +71,7 @@ export default function Game() {
 
   useEffect(async () => {
     if (user) {
-      const { data } = await axios.get("api/question");
+      const { data } = await axios.get(`api/question/${difficulty}`);
       setQuestion(data);
     }
   }, [active]);
@@ -115,7 +116,7 @@ export default function Game() {
 
   const getQuestion = async () => {
     try {
-      const { data } = await axios.get("api/question");
+      const { data } = await axios.get(`api/question/${difficulty}`);
       setQuestion(data);
       reduceTimer > 5.5
         ? setReduceTimer((prev) => prev - 0.5)
@@ -173,7 +174,13 @@ export default function Game() {
             setLives={setLives}
           />
         ) : !active ? (
-          <Home logOut={logOut} setActive={setActive} setTimer={setTimer} />
+          <Home
+            logOut={logOut}
+            setActive={setActive}
+            setTimer={setTimer}
+            setDifficulty={setDifficulty}
+            difficulty={difficulty}
+          />
         ) : (
           question && (
             <Question

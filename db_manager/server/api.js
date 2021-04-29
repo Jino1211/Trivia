@@ -22,8 +22,10 @@ const historyOfPlayer = {
 
 api.use(validToken);
 //Entry point for sending  new questions for the users
-api.get("/question", (req, res) => {
-  const { difficulty } = historyOfPlayer;
+api.get("/question/:difficulty", (req, res) => {
+  const { difficulty } = req.params;
+
+  historyOfPlayer.difficulty = difficulty;
   numOfQuestion += 1;
   let third = numOfQuestion % 3 === 0 ? true : false;
   getQuestion(third, difficulty)
