@@ -9,6 +9,7 @@ const {
   saveUser,
   generateWeightedSavedQuestionArr,
   getScoreBoard,
+  validToken,
 } = require("./utils");
 let currentQuestion;
 let numOfQuestion = 0;
@@ -19,6 +20,7 @@ const historyOfPlayer = {
   playerQuestionsAndRates: [],
 };
 
+api.use(validToken);
 //Entry point for sending  new questions for the users
 api.get("/question", (req, res) => {
   const { difficulty } = historyOfPlayer;

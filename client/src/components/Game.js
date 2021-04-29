@@ -38,23 +38,28 @@ export default function Game() {
   }, [timer]);
 
   useEffect(() => {
-    if (user) {
+    console.log("41");
+    if (active) {
+      console.log("43");
       const interval = setInterval(async () => {
-        if (timer === 0) {
+        if (timer <= 0) {
           clearInterval(interval);
+          console.log("47");
+          console.log(timer);
 
           if (question) {
+            console.log("50");
             const correct = await getCorrectAnswer();
             setCorrectAnswer(correct);
           }
           setIsRight(false);
         } else {
-          setTimer((prev) => prev - 0.5);
+          timer ? setTimer((prev) => prev - 0.5) : clearInterval(interval);
         }
       }, 500);
       return () => clearInterval(interval);
     }
-  }, [user, timer, reduceTimer]);
+  }, [active, timer, reduceTimer]);
 
   useEffect(() => {
     if (lives === 0) {
@@ -65,12 +70,10 @@ export default function Game() {
 
   useEffect(async () => {
     if (user) {
-      console.log("use Effect user");
-      console.log(user);
       const { data } = await axios.get("api/question");
       setQuestion(data);
     }
-  }, [user]);
+  }, [active]);
 
   const getCorrectAnswer = async () => {
     const { data } = await axios.get("api/answer");
@@ -85,23 +88,14 @@ export default function Game() {
       compareAnswers(chosen, correct);
       setChosenAnswer(chosen);
       setCorrectAnswer(correct);
-      setTimer(undefined);
+      setTimer();
     } catch (err) {
       console.log(err.message);
     }
-    console.log("timer");
-    console.log(timer);
-    console.log("reduceTimer");
-    console.log(reduceTimer);
   };
 
   const compareAnswers = (chosen, correct) => {
     setIsRight(chosen === `${correct}`);
-    console.log(chosen);
-    console.log(typeof chosen);
-
-    console.log(correct);
-    console.log(chosen === `${correct}`);
 
     if (chosen === `${correct}`) {
       const currentScore = (1 - (reduceTimer - timer) / reduceTimer) * 70 + 30;
@@ -114,7 +108,6 @@ export default function Game() {
   const finishGame = async () => {
     try {
       const done = await axios.post("api/finish", { score: score });
-      console.log(done);
     } catch (err) {
       console.log(err.message);
     }
@@ -143,11 +136,9 @@ export default function Game() {
     setActive(false);
   };
   const logOut = async () => {
-    console.log("kil");
     await axios.post("/users/logout");
     resetGame();
     setUser();
-    console.log("bil");
   };
 
   return (
@@ -182,16 +173,18 @@ export default function Game() {
             setLives={setLives}
           />
         ) : !active ? (
-          <Home logOut={logOut} setActive={setActive} />
+          <Home logOut={logOut} setActive={setActive} setTimer={setTimer} />
         ) : (
-          <Question
-            lives={lives}
-            timer={timer}
-            progress={progress}
-            question={question}
-            setChosen={setChosen}
-            score={score}
-          />
+          question && (
+            <Question
+              lives={lives}
+              timer={timer}
+              progress={progress}
+              question={question}
+              setChosen={setChosen}
+              score={score}
+            />
+          )
         )}
       </div>
     </BrowserRouter>

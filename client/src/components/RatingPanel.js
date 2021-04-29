@@ -23,7 +23,6 @@ export default function RatingPanel({
       setLives((prev) => prev - 1);
     }
     if (lives <= 0) {
-      console.log("finish");
       setCorrectAnswer();
       await finishGame();
     } else {

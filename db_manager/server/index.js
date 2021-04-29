@@ -3,7 +3,7 @@ const app = express();
 const cookieParser = require("cookie-parser");
 
 const { api } = require("./api");
-const { users } = require("./users");
+const users = require("./users");
 
 app.use(express.json());
 app.use(cookieParser());

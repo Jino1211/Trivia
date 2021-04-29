@@ -1,3 +1,4 @@
+require("dotenv").config();
 const { Op, Sequelize, where } = require("sequelize");
 const {
   questions,
@@ -9,6 +10,7 @@ const models = require(`../models`);
 let question;
 const history = [];
 const questionsDuplicateByWeight = [];
+const { verify, sign } = require("jsonwebtoken");
 
 //checking the kind of the type 1,3 questions (max/min).
 const checkIncludesText = (question) => {
@@ -193,7 +195,6 @@ const saveNewQuestion = (usersQuestion, difficulty, score) => {
       updated_at: new Date().toLocaleDateString(),
     })
     .then((x) => console.log(x.toJSON()));
-  console.log("finish save New Question ");
 };
 
 //Function for updating an already rated question.
@@ -256,7 +257,6 @@ const getFromWeightedArr = () => {
     Math.random() * questionsDuplicateByWeight.length
   );
 
-  console.log(questionsDuplicateByWeight[randomQuestion].toJSON());
   return questionsDuplicateByWeight[randomQuestion];
 };
 
@@ -282,10 +282,50 @@ const saveNewRegister = async (email, userName, password) => {
     created_at: new Date(),
     updated_at: new Date(),
   });
-  console.log(x.toJSON());
+};
+
+//Middleware for checking if the token gotten from the req is valid
+const validToken = async (req, res, next) => {
+  let accessToken = await req.cookies["accessToken"];
+  let refreshToken = await req.cookies["refreshToken"];
+
+  if (!accessToken || !refreshToken) {
+    return res
+      .status(401)
+      .json({ message: "Both Access token and Refresh token are required" });
+  }
+  accessToken = accessToken.slice(7);
+  refreshToken = refreshToken.slice(7);
+  verify(accessToken, process.env.SECRET_KEY, (err, decoded) => {
+    if (err) {
+      if (err.message === "jwt expired") {
+        verify(refreshToken, process.env.REFRESH_KEY, (err, decoded) => {
+          if (err) {
+            res.status(403).json({ message: err.message });
+          } else {
+            const { email, userName } = decoded;
+            accessToken = sign({ email, userName }, process.env.SECRET_KEY, {
+              expiresIn: "10s",
+            });
+            console.log(accessToken);
+            res
+              .clearCookie("accessToken")
+              .cookie("accessToken", `Bearer ${accessToken}`);
+            next();
+          }
+        });
+      } else {
+        return res.status(401).json({ message: err.message });
+      }
+    } else {
+      req.user = decoded;
+      next();
+    }
+  });
 };
 
 module.exports = {
+  validToken,
   getQuestion,
   handleNewRate,
   saveUser,
