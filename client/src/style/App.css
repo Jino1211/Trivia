@@ -1,0 +1,59 @@
+.start-game-panel {
+  margin-top: 15%;
+}
+
+.App {
+  text-align: center;
+  background-image: -webkit-gradient(linear, left top, right bottom, from(white), to(#91dde7));
+  background-image: linear-gradient(to bottom right, white, #91dde7);
+  width: 100vw;
+  height: 100vh;
+  color: #040452;
+}
+
+.game .avatar {
+  background-color: lightblue;
+}
+
+.home h1 {
+  margin-top: 4%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-weight: bold;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.radios-difficulty {
+  display: block !important;
+  margin-bottom: 5vh;
+}
+
+.login-panel {
+  margin-top: 25%;
+}
+
+.create-user-btn {
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.sign-up-div {
+  margin-top: 1%;
+}
+
+.logout {
+  position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  float: left;
+}
+
+.logout .logout-btn {
+  margin-right: 1vw;
+}
+/*# sourceMappingURL=App.css.map */

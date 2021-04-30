@@ -1,0 +1,56 @@
+.start-game-panel {
+  margin-top: 15%;
+}
+
+.App {
+  text-align: center;
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(255, 255, 255),
+    rgb(145, 221, 231)
+  );
+  width: 100vw;
+  height: 100vh;
+  color: rgb(4, 4, 82);
+}
+
+.game {
+  & .avatar {
+    background-color: lightblue;
+  }
+}
+
+.home h1 {
+  margin-top: 4%;
+  display: flex;
+  font-weight: bold;
+  justify-content: center;
+}
+
+.radios-difficulty {
+  display: block !important;
+  margin-bottom: 5vh;
+}
+
+.login-panel {
+  margin-top: 25%;
+}
+
+.create-user-btn {
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.sign-up-div {
+  margin-top: 1%;
+}
+.logout {
+  position: fixed;
+  display: flex;
+  float: left;
+  & .logout-btn {
+    margin-right: 1vw;
+  }
+  & .user-name {
+  }
+}

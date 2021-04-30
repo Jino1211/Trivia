@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 // import Options from "./Options";
 import Question from "./Question";
-import CreateUser from "./CreateUser";
+import Login from "./Login";
 import GameSummery from "./GameSummery";
 import Home from "./Home";
 import Board from "./Board";
 import axios from "axios";
 import RatingPanel from "./RatingPanel";
+import { Avatar } from "@material-ui/core";
 // import { LinearProgress, Link } from "@material-ui/core";
 
 import {
@@ -39,17 +40,12 @@ export default function Game() {
   }, [timer]);
 
   useEffect(() => {
-    console.log("41");
     if (active) {
-      console.log("43");
       const interval = setInterval(async () => {
         if (timer <= 0) {
           clearInterval(interval);
-          console.log("47");
-          console.log(timer);
 
           if (question) {
-            console.log("50");
             const correct = await getCorrectAnswer();
             setCorrectAnswer(correct);
           }
@@ -135,6 +131,7 @@ export default function Game() {
     setLives(3);
     setCorrectAnswer();
     setActive(false);
+    setDifficulty();
   };
   const logOut = async () => {
     await axios.post("/users/logout");
@@ -144,25 +141,33 @@ export default function Game() {
 
   return (
     <BrowserRouter>
-      <div>
-        <nav>
-          <NavLink exact to="/" onClick={resetGame}>
-            New Game
-          </NavLink>{" "}
-          <NavLink exact to="/board">
-            Winners and losers Board
-          </NavLink>
-          <Switch>
-            <Route exact path="/board" component={Board} />
-            <Route exact path="/gamesummery" component={GameSummery} />
-            <Route exact path="/register" component={Register} />
-          </Switch>
-        </nav>
-        {user && <button onClick={logOut}>log out</button>}
+      <div className="game">
+        <nav></nav>
+        {user && (
+          <div className="nav-bar">
+            <NavLink exact to="/" onClick={resetGame}>
+              <section className="logout">
+                <NavLink className="logout-btn" onClick={logOut} exact to="/">
+                  log out
+                </NavLink>
+                <Avatar className="avatar">{user.name.slice(0, 1)}</Avatar>
+              </section>
+              Home
+            </NavLink>{" "}
+            <NavLink exact to="/board">
+              Winners and losers Board
+            </NavLink>
+            <Switch>
+              <Route exact path="/board" component={Board} />
+              <Route exact path="/gamesummery" component={GameSummery} />
+              <Route exact path="/register" component={Register} />
+            </Switch>
+          </div>
+        )}
         {!isAlive ? (
           <GameSummery user={user} score={score} />
         ) : !user ? (
-          <CreateUser setUser={setUser} setTimer={setTimer} />
+          <Login setUser={setUser} setTimer={setTimer} />
         ) : correctAnswer ? (
           <RatingPanel
             isRight={isRight}
@@ -180,6 +185,7 @@ export default function Game() {
             setTimer={setTimer}
             setDifficulty={setDifficulty}
             difficulty={difficulty}
+            user={user}
           />
         ) : (
           question && (
