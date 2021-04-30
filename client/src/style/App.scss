@@ -17,6 +17,7 @@
 .game {
   & .avatar {
     background-color: lightblue;
+    margin-top: 0%;
   }
 }
 
@@ -44,13 +45,26 @@
 .sign-up-div {
   margin-top: 1%;
 }
+.nav-bar {
+  padding-top: 2%;
+  padding-bottom: 4%;
+}
 .logout {
-  position: fixed;
-  display: flex;
   float: left;
+  padding-left: 2vw;
   & .logout-btn {
+    margin-left: 1vw;
     margin-right: 1vw;
+    display: flex;
+    align-items: center;
+    // float: left;
   }
-  & .user-name {
-  }
+}
+
+.nav-link {
+  color: rgb(61, 53, 110);
+  text-decoration: none;
+  width: fit-content;
+  float: right;
+  margin-right: 3%;
 }

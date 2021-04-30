@@ -142,19 +142,23 @@ export default function Game() {
   return (
     <BrowserRouter>
       <div className="game">
-        <nav></nav>
         {user && (
           <div className="nav-bar">
-            <NavLink exact to="/" onClick={resetGame}>
-              <section className="logout">
-                <NavLink className="logout-btn" onClick={logOut} exact to="/">
-                  log out
-                </NavLink>
-                <Avatar className="avatar">{user.name.slice(0, 1)}</Avatar>
-              </section>
+            <section className="logout">
+              <NavLink
+                className="logout-btn nav-link"
+                onClick={logOut}
+                exact
+                to="/"
+              >
+                log out
+              </NavLink>
+              <Avatar className="avatar">{user.name.slice(0, 1)}</Avatar>
+            </section>
+            <NavLink className="nav-link" exact to="/" onClick={resetGame}>
               Home
             </NavLink>{" "}
-            <NavLink exact to="/board">
+            <NavLink exact to="/board" className="nav-link">
               Winners and losers Board
             </NavLink>
             <Switch>

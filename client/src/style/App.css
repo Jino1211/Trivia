@@ -13,6 +13,7 @@
 
 .game .avatar {
   background-color: lightblue;
+  margin-top: 0%;
 }
 
 .home h1 {
@@ -45,15 +46,34 @@
   margin-top: 1%;
 }
 
+.nav-bar {
+  padding-top: 2%;
+  padding-bottom: 4%;
+}
+
 .logout {
-  position: fixed;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   float: left;
+  padding-left: 2vw;
 }
 
 .logout .logout-btn {
+  margin-left: 1vw;
   margin-right: 1vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.nav-link {
+  color: #3d356e;
+  text-decoration: none;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  float: right;
+  margin-right: 3%;
 }
 /*# sourceMappingURL=App.css.map */
