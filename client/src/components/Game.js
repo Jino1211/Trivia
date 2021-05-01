@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 // import Options from "./Options";
 import Question from "./Question";
-import Login from "./Login";
+import LandingPage from "./LandingPage";
 import GameSummery from "./GameSummery";
 import Home from "./Home";
 import Board from "./Board";
@@ -171,7 +171,7 @@ export default function Game() {
         {!isAlive ? (
           <GameSummery user={user} score={score} />
         ) : !user ? (
-          <Login setUser={setUser} setTimer={setTimer} />
+          <LandingPage setUser={setUser} setTimer={setTimer} />
         ) : correctAnswer ? (
           <RatingPanel
             isRight={isRight}

@@ -1,9 +1,7 @@
-import React, { useRef, useState } from "react";
 import axios from "axios";
-import Register from "./Register";
+import React, { useRef } from "react";
 
 export default function Login({ setUser, setTimer }) {
-  const [haveAccount, setHaveAccount] = useState(true);
   const email = useRef();
   const password = useRef();
 
@@ -24,31 +22,23 @@ export default function Login({ setUser, setTimer }) {
         .catch((err) => console.log(err));
     }
   };
+
   return (
-    <div className="login-panel">
-      {haveAccount ? (
-        <div>
-          {" "}
-          <input ref={email} placeholder="Email" />{" "}
-          <input ref={password} placeholder="Password" />
-          <button className="login-btn" onClick={login}>
-            Log in!
-          </button>
-          <div className="sign-up-div">
-            Don't have an account?{" "}
-            <span
-              className="create-user-btn"
-              onClick={() => {
-                setHaveAccount(false);
-              }}
-            >
-              Sign Up
-            </span>{" "}
-          </div>
+    <div className="form form-login">
+      <fieldset>
+        <legend>Please, enter your email and password for login.</legend>
+        <div className="input-block">
+          <label htmlFor="login-email">E-mail</label>
+          <input id="login-email" ref={email} type="email" required />
         </div>
-      ) : (
-        <Register setHaveAccount={setHaveAccount} />
-      )}
+        <div className="input-block">
+          <label htmlFor="login-password">Password</label>
+          <input id="login-password" ref={password} type="password" required />
+        </div>
+      </fieldset>
+      <button type="submit" className="btn-login" onClick={login}>
+        Login
+      </button>
     </div>
   );
 }

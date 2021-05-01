@@ -11,15 +11,13 @@ export default function Play({
   score,
 }) {
   return (
-    <div>
-      <div>
-        <div>lives left : {lives}</div>
-        <div>{timer} </div>
-        <LinearProgress variant="determinate" value={progress} />
-        <div className="question">{question.question}</div>
-        <Options options={question.options} setChosenAnswer={setChosen} />
-        <div className="total-score">Total score:{Math.floor(score)}</div>
-      </div>
+    <div className="question-container">
+      <div className="lives">lives left : {lives}</div>
+      <div className="total-score">Total score:{Math.floor(score)}</div>
+      <div className="timer">{timer} </div>
+      <LinearProgress id="time-line" variant="determinate" value={progress} />
+      <div className="question">{question.question}</div>
+      <Options options={question.options} setChosenAnswer={setChosen} />
     </div>
   );
 }

@@ -1,37 +1,57 @@
 import axios from "axios";
 import React, { useRef } from "react";
 
-export default function Register({ setHaveAccount }) {
-  const email = useRef();
-  const username = useRef();
-  const password = useRef();
+export default function Register({}) {
+  const registerEmail = useRef();
+  const registerUsername = useRef();
+  const registerPassword = useRef();
 
   const signUp = async () => {
     if (
-      email.current.value !== "" &&
-      username.current.value !== "" &&
-      email.current.value !== ""
+      registerEmail.current.value !== "" &&
+      registerUsername.current.value !== "" &&
+      registerPassword.current.value !== ""
     ) {
       const user = {
-        email: email.current.value,
-        userName: username.current.value,
-        password: password.current.value,
+        email: registerEmail.current.value,
+        userName: registerUsername.current.value,
+        password: registerPassword.current.value,
       };
       await axios.post("/users/register", user);
-      setHaveAccount(true);
     } else {
       alert(
         "You can't register without inserting an email, username and a password"
       );
     }
   };
-
   return (
-    <div>
-      <input className="new-mail-input" ref={email} required></input>
-      <input className="new-name-input" ref={username} required></input>
-      <input className="new-pass-input" ref={password} required></input>
-      <button onClick={signUp}>Sign up!</button>
-    </div>
+    <form className="form form-signup">
+      <fieldset>
+        <legend>
+          Please, enter your email, password and password confirmation for sign
+          up.
+        </legend>
+        <div className="input-block">
+          <label htmlFor="signup-email">E-mail</label>
+          <input id="signup-email" ref={registerEmail} type="email" required />
+        </div>
+        <div className="input-block">
+          <label htmlFor="signup-password">User Name:</label>
+          <input ref={registerUsername} required />
+        </div>
+        <div className="input-block">
+          <label htmlFor="signup-password-confirm">password</label>
+          <input
+            id="signup-password-confirm"
+            ref={registerPassword}
+            type="password"
+            required
+          />
+        </div>
+      </fieldset>
+      <button type="submit" className="btn-signup" onClick={signUp}>
+        Continue
+      </button>
+    </form>
   );
 }
