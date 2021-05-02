@@ -547,4 +547,12 @@ body {
   -webkit-transform: translateX(30%);
           transform: translateX(30%);
 }
+
+.board-table {
+  width: 100vw;
+}
+
+.board-table .user-panel {
+  border: 1px solid blue;
+}
 /*# sourceMappingURL=App.css.map */

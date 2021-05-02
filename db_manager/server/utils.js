@@ -275,7 +275,7 @@ const checkUserExist = async (email) => {
 };
 
 const saveNewRegister = async (email, userName, password) => {
-  const x = await registeredUsers.create({
+  await registeredUsers.create({
     email,
     user_name: userName,
     password,

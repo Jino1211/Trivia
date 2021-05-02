@@ -6,24 +6,30 @@ export default function Register({}) {
   const registerUsername = useRef();
   const registerPassword = useRef();
 
-  const signUp = async () => {
-    if (
-      registerEmail.current.value !== "" &&
-      registerUsername.current.value !== "" &&
-      registerPassword.current.value !== ""
-    ) {
-      const user = {
-        email: registerEmail.current.value,
-        userName: registerUsername.current.value,
-        password: registerPassword.current.value,
-      };
-      await axios.post("/users/register", user);
-    } else {
-      alert(
-        "You can't register without inserting an email, username and a password"
-      );
+  const signUp = async (e) => {
+    try {
+      if (
+        registerEmail.current.value !== "" &&
+        registerUsername.current.value !== "" &&
+        registerPassword.current.value !== ""
+      ) {
+        let user = {
+          email: registerEmail.current.value,
+          userName: registerUsername.current.value,
+          password: registerPassword.current.value,
+        };
+
+        await axios.post("/users/register", user);
+      } else {
+        alert(
+          "You can't register without inserting an email, username and a password"
+        );
+      }
+    } catch (err) {
+      alert("User already exist");
     }
   };
+
   return (
     <form className="form form-signup">
       <fieldset>

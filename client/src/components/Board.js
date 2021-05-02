@@ -10,18 +10,19 @@ export default function Board() {
   }, []);
 
   return (
-    <table>
+    <table className="board-table">
       <thead>
         <tr>
-          <th>User</th>
-          <th>Score</th>
-          <th>Date</th>
+          <th className="users-column">User</th>
+          <th className="score-column">Score</th>
+          <th className="date-column">Date</th>
         </tr>
       </thead>
-
-      {scoreBoard?.map((user, i) => (
-        <UserPanel key={`user-${i}`} user={user} />
-      ))}
+      <tbody className="table-body">
+        {scoreBoard?.map((user, i) => (
+          <UserPanel key={`user-${i}`} user={user} />
+        ))}
+      </tbody>
     </table>
   );
 }

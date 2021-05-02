@@ -33,6 +33,7 @@ export default function Game() {
   const [isAlive, setIsAlive] = useState(true);
   const [active, setActive] = useState(false);
   const [difficulty, setDifficulty] = useState();
+  const [board, setBoard] = useState();
   /////
 
   useEffect(() => {
@@ -132,6 +133,7 @@ export default function Game() {
     setCorrectAnswer();
     setActive(false);
     setDifficulty();
+    setBoard();
   };
   const logOut = async () => {
     await axios.post("/users/logout");
@@ -158,50 +160,64 @@ export default function Game() {
             <NavLink className="nav-link" exact to="/" onClick={resetGame}>
               Home
             </NavLink>{" "}
-            <NavLink exact to="/board" className="nav-link">
-              Winners and losers Board
-            </NavLink>
+            <section className="board">
+              <NavLink
+                exact
+                to="/board"
+                className="nav-link"
+                onClick={() => {
+                  setBoard("display");
+                  console.log(board);
+                }}
+              >
+                Winners and losers Board
+              </NavLink>
+            </section>
             <Switch>
               <Route exact path="/board" component={Board} />
-              <Route exact path="/gamesummery" component={GameSummery} />
               <Route exact path="/register" component={Register} />
+              <Route exact path="/gamesummery" component={GameSummery} />
             </Switch>
           </div>
         )}
-        {!isAlive ? (
-          <GameSummery user={user} score={score} />
-        ) : !user ? (
-          <LandingPage setUser={setUser} setTimer={setTimer} />
-        ) : correctAnswer ? (
-          <RatingPanel
-            isRight={isRight}
-            correctAnswer={correctAnswer}
-            setCorrectAnswer={setCorrectAnswer}
-            getQuestion={getQuestion}
-            lives={lives}
-            finishGame={finishGame}
-            setLives={setLives}
-          />
-        ) : !active ? (
-          <Home
-            logOut={logOut}
-            setActive={setActive}
-            setTimer={setTimer}
-            setDifficulty={setDifficulty}
-            difficulty={difficulty}
-            user={user}
-          />
-        ) : (
-          question && (
-            <Question
-              lives={lives}
-              timer={timer}
-              progress={progress}
-              question={question}
-              setChosen={setChosen}
-              score={score}
-            />
-          )
+        {!board && (
+          <>
+            {!isAlive ? (
+              <GameSummery user={user} score={score} />
+            ) : !user ? (
+              <LandingPage setUser={setUser} setTimer={setTimer} />
+            ) : correctAnswer ? (
+              <RatingPanel
+                isRight={isRight}
+                correctAnswer={correctAnswer}
+                setCorrectAnswer={setCorrectAnswer}
+                getQuestion={getQuestion}
+                lives={lives}
+                finishGame={finishGame}
+                setLives={setLives}
+              />
+            ) : !active ? (
+              <Home
+                logOut={logOut}
+                setActive={setActive}
+                setTimer={setTimer}
+                setDifficulty={setDifficulty}
+                difficulty={difficulty}
+                user={user}
+              />
+            ) : (
+              question && (
+                <Question
+                  lives={lives}
+                  timer={timer}
+                  progress={progress}
+                  question={question}
+                  setChosen={setChosen}
+                  score={score}
+                />
+              )
+            )}
+          </>
         )}
       </div>
     </BrowserRouter>

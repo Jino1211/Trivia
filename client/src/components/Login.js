@@ -19,7 +19,10 @@ export default function Login({ setUser, setTimer }) {
           setUser(user);
           setTimer(20);
         })
-        .catch((err) => console.log(err));
+        .catch((err) => {
+          console.log(err.message);
+          alert("User doesn't exist");
+        });
     }
   };
 

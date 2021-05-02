@@ -16,14 +16,16 @@ users.post("/register", async (req, res) => {
   const { userName, email, password } = req.body;
   try {
     const isExist = await checkUserExist(email);
+    console.log(isExist);
+    if (isExist) {
+      console.log("21");
+      res.status(409).json({ message: "User already exists" });
+    } else {
+      const hashPassword = hashSync(password, 10);
+      await saveNewRegister(email, userName, hashPassword);
 
-    if (isExist)
-      return res.status(409).json({ message: "User already exists" });
-
-    const hashPassword = hashSync(password, 10);
-    await saveNewRegister(email, userName, hashPassword);
-
-    res.status(201).json({ message: "User was successfully created" });
+      res.status(201).json({ message: "User was successfully created" });
+    }
   } catch (err) {
     res.status(400).json({ message: "We have a problem with our server" });
   }
