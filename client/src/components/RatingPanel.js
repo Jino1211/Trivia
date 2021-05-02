@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Rating } from "@material-ui/lab";
 import axios from "axios";
+import Button from "@material-ui/core/Button";
 
 export default function RatingPanel({
   isRight,
@@ -43,7 +44,14 @@ export default function RatingPanel({
         }}
       />
       <div className="skip-btn">
-        <button onClick={() => handleRate()}>skip!</button>
+        <Button
+          variant="contained"
+          color="primary"
+          disableElevation
+          onClick={() => handleRate()}
+        >
+          skip!
+        </Button>
       </div>
     </div>
   );

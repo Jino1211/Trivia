@@ -7,10 +7,11 @@
   background-image: -webkit-gradient(linear, left top, right bottom, from(white), to(#91dde7));
   background-image: linear-gradient(to bottom right, white, #91dde7);
   width: 100vw;
-  height: 100vh;
   margin: 0;
   padding: 0;
   color: #040452;
+  height: 100%;
+  min-height: 100vh;
 }
 
 .home h1 {
@@ -76,6 +77,7 @@
 
 .nav-link {
   color: #3d356e;
+  cursor: pointer;
   text-decoration: none;
   width: -webkit-fit-content;
   width: -moz-fit-content;
@@ -548,18 +550,34 @@ body {
           transform: translateX(30%);
 }
 
+.table {
+  overflow: hidden;
+  overflow-y: scroll;
+  max-height: 75vh;
+}
+
+.table::-webkit-scrollbar {
+  display: none;
+}
+
 .board-table {
-  overflow: auto;
-  width: 70vw;
+  padding-bottom: 7vh;
   margin: 7vh auto 0 auto;
 }
 
 .board-table th {
   border: blue solid 0.2vw;
   width: 20vw;
+  position: -webkit-sticky;
+  position: sticky;
 }
 
 .board-table td {
   border: blue solid 0.1vw;
+}
+
+th {
+  position: -webkit-sticky;
+  position: sticky;
 }
 /*# sourceMappingURL=App.css.map */

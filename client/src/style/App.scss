@@ -10,13 +10,11 @@
     rgb(145, 221, 231)
   );
   width: 100vw;
-  height: 100vh;
   margin: 0;
   padding: 0;
   color: rgb(4, 4, 82);
-}
-
-.game {
+  height: 100%;
+  min-height: 100vh;
 }
 
 .home h1 {
@@ -67,6 +65,7 @@
 
 .nav-link {
   color: rgb(61, 53, 110);
+  cursor: pointer;
   text-decoration: none;
   width: fit-content;
   float: right;
@@ -383,13 +382,24 @@ body {
   transform: translateX(30%);
 }
 
+.table {
+  overflow: hidden;
+  overflow-y: scroll;
+  max-height: 75vh;
+  // width: fit-content;
+}
+.table::-webkit-scrollbar {
+  display: none;
+}
+
 .board-table {
-  overflow: auto;
-  width: 70vw;
+  // width: 70vw;
+  padding-bottom: 7vh;
   margin: 7vh auto 0 auto;
   & th {
     border: blue solid 0.2vw;
     width: 20vw;
+    position: sticky;
   }
   & td {
     border: blue solid 0.1vw;
@@ -397,4 +407,7 @@ body {
   // & .user-panel {
   //   border: 1px solid blue;
   // }
+}
+th {
+  position: sticky;
 }
