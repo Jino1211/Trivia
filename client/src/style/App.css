@@ -549,10 +549,17 @@ body {
 }
 
 .board-table {
-  width: 100vw;
+  overflow: auto;
+  width: 70vw;
+  margin: 7vh auto 0 auto;
 }
 
-.board-table .user-panel {
-  border: 1px solid blue;
+.board-table th {
+  border: blue solid 0.2vw;
+  width: 20vw;
+}
+
+.board-table td {
+  border: blue solid 0.1vw;
 }
 /*# sourceMappingURL=App.css.map */

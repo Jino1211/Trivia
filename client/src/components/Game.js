@@ -160,19 +160,17 @@ export default function Game() {
             <NavLink className="nav-link" exact to="/" onClick={resetGame}>
               Home
             </NavLink>{" "}
-            <section className="board">
-              <NavLink
-                exact
-                to="/board"
-                className="nav-link"
-                onClick={() => {
-                  setBoard("display");
-                  console.log(board);
-                }}
-              >
-                Winners and losers Board
-              </NavLink>
-            </section>
+            <NavLink
+              exact
+              to="/board"
+              className="nav-link"
+              onClick={() => {
+                setBoard("display");
+                console.log(board);
+              }}
+            >
+              Winners and losers Board
+            </NavLink>
             <Switch>
               <Route exact path="/board" component={Board} />
               <Route exact path="/register" component={Register} />
