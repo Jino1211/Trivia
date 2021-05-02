@@ -10,21 +10,28 @@ export default function Board() {
   }, []);
 
   return (
-    <div className="table">
-      <table className="board-table">
-        <thead>
-          <tr>
-            <th className="users-column">User</th>
-            <th className="score-column">Score</th>
-            <th className="date-column">Date</th>
-          </tr>
-        </thead>
-        <tbody className="table-body">
-          {scoreBoard?.map((user, i) => (
-            <UserPanel key={`user-${i}`} user={user} />
-          ))}
-        </tbody>
-      </table>
-    </div>
+    <section>
+      <h1>Winners Board</h1>
+      <div className="tbl-header">
+        <table cellPadding={0} cellSpacing={0} border={0}>
+          <thead>
+            <tr>
+              <th className="users-column">User</th>
+              <th className="score-column">Score</th>
+              <th className="date-column">Date</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+      <div className="tbl-content">
+        <table cellPadding={0} cellSpacing={0} border={0}>
+          <tbody>
+            {scoreBoard?.map((user, i) => (
+              <UserPanel key={`user-${i}`} user={user} />
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
   );
 }

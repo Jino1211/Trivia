@@ -134,12 +134,12 @@ export default function Game() {
     <div className="game">
       {user && (
         <nav className="nav-bar">
-          <section className="logout">
+          <div className="logout">
             <span className="logout-btn nav-link" onClick={logOut}>
               log out
             </span>
             <Avatar className="avatar">{user.name.slice(0, 1)}</Avatar>
-          </section>
+          </div>
           <span className="nav-link" onClick={resetGame}>
             Home
           </span>{" "}

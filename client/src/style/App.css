@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
 .start-game-panel {
   margin-top: 7%;
 }
@@ -550,34 +551,62 @@ body {
           transform: translateX(30%);
 }
 
-.table {
-  overflow: hidden;
-  overflow-y: scroll;
-  max-height: 75vh;
+table {
+  width: 100%;
+  table-layout: fixed;
 }
 
-.table::-webkit-scrollbar {
-  display: none;
+.tbl-header {
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
-.board-table {
-  padding-bottom: 7vh;
-  margin: 7vh auto 0 auto;
-}
-
-.board-table th {
-  border: blue solid 0.2vw;
-  width: 20vw;
-  position: -webkit-sticky;
-  position: sticky;
-}
-
-.board-table td {
-  border: blue solid 0.1vw;
+.tbl-content {
+  height: 300px;
+  overflow-x: auto;
+  margin-top: 0px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 th {
-  position: -webkit-sticky;
-  position: sticky;
+  padding: 20px 15px;
+  text-align: left;
+  font-weight: 500;
+  font-size: 12px;
+  color: #36326e;
+  text-transform: uppercase;
+}
+
+td {
+  padding: 15px;
+  text-align: left;
+  vertical-align: middle;
+  font-weight: 300;
+  font-size: 12px;
+  color: #36326e;
+  border-bottom: solid 1px rgba(255, 255, 255, 0.1);
+}
+
+/* demo styles */
+body {
+  background: -webkit-gradient(linear, left top, right top, from(#25c481), to(#25b7c4));
+  background: linear-gradient(to right, #25c481, #25b7c4);
+  font-family: "Roboto", sans-serif;
+}
+
+section {
+  margin: 50px;
+}
+
+/* for custom scrollbar for webkit browser*/
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
 /*# sourceMappingURL=App.css.map */
