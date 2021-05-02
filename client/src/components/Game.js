@@ -70,8 +70,10 @@ export default function Game() {
 
   const setChosen = async (e) => {
     try {
-      const correct = await getCorrectAnswer();
-      const chosen = e.target.innerText;
+      let correct = await getCorrectAnswer();
+      let chosen = e.target.innerText;
+      if (typeof correct === "string") correct = correct.toLowerCase();
+      if (typeof chosen === "string") chosen = chosen.toLowerCase();
       compareAnswers(chosen, correct);
       setChosenAnswer(chosen);
       setCorrectAnswer(correct);
