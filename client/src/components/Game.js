@@ -55,11 +55,14 @@ export default function Game() {
     }
   }, [lives]);
 
-  useEffect(async () => {
-    if (user) {
-      const { data } = await axios.get(`api/question/${difficulty}`);
-      setQuestion(data);
+  useEffect(() => {
+    async function fetchData() {
+      if (active) {
+        const { data } = await axios.get(`api/question/${difficulty}`);
+        setQuestion(data);
+      }
     }
+    fetchData();
   }, [active]);
 
   const getCorrectAnswer = async () => {
@@ -120,9 +123,10 @@ export default function Game() {
     setTimer(undefined);
     setReduceTimer(20);
     setQuestion();
+    setActive(false);
+    setScore(0);
     setLives(3);
     setCorrectAnswer();
-    setActive(false);
     setDifficulty();
     setBoard();
   };

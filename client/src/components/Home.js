@@ -22,6 +22,15 @@ export default function Home({
     },
     checked: {},
   })((props) => <Radio color="default" {...props} />);
+
+  const prepareGame = () => {
+    if (!difficulty) {
+      return alert("Must choose difficulty");
+    }
+    setTimer(20);
+    setActive(true);
+  };
+
   return (
     <div className="home">
       <h1 className="welcome-title">Hello {user.name}</h1>
@@ -53,13 +62,7 @@ export default function Home({
           variant="contained"
           color="primary"
           size="large"
-          onClick={() => {
-            if (!difficulty) {
-              return alert("fuckall");
-            }
-            setActive(true);
-            setTimer(20);
-          }}
+          onClick={prepareGame}
         >
           Start Game
         </Button>
