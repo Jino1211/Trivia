@@ -161,7 +161,7 @@ export default function Game() {
       ) : (
         <>
           {!isAlive ? (
-            <GameSummery user={user} score={score} />
+            <GameSummery user={user} score={score} difficulty={difficulty} />
           ) : !user ? (
             <LandingPage setUser={setUser} setTimer={setTimer} />
           ) : correctAnswer ? (
