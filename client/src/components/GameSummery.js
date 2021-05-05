@@ -12,9 +12,9 @@ export default function GameSummery({ user, score, difficulty }) {
           </div>
           <div class="card__details">
             <ul>
-              <li>{user.name}</li>
-              <li>{difficulty}</li>
-              <li>{score}</li>
+              <li>User: {user.name}</li>
+              <li>Difficulty: {difficulty}</li>
+              <li>Score: {Math.floor(score)}</li>
             </ul>
           </div>
         </div>

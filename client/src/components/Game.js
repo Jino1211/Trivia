@@ -92,6 +92,8 @@ export default function Game() {
     if (chosen === `${correct}`) {
       const currentScore = (1 - (reduceTimer - timer) / reduceTimer) * 70 + 30;
       setScore((score) => score + currentScore);
+      console.log(currentScore);
+      console.log(score);
     } else {
       console.log(lives);
     }
